@@ -24,8 +24,8 @@ public struct IngestionClientConfiguration: BaseConfiguration, Credentials {
         appID: String,
         apiKey: String,
         region: Region,
-        writeTimeout: TimeInterval = DefaultConfiguration.default.writeTimeout,
-        readTimeout: TimeInterval = DefaultConfiguration.default.readTimeout,
+        writeTimeout: TimeInterval = 25,
+        readTimeout: TimeInterval = 25,
         logLevel: LogLevel = DefaultConfiguration.default.logLevel,
         defaultHeaders: [String: String]? = DefaultConfiguration.default.defaultHeaders,
         hosts: [RetryableHost]? = nil
@@ -59,10 +59,10 @@ public struct IngestionClientConfiguration: BaseConfiguration, Credentials {
                 )
             }
 
-            guard let url = URL(
-                string: "https://data.{region}.algolia.com"
-                    .replacingOccurrences(of: "{region}", with: region.rawValue)
-            ) else {
+            guard let url = URL(string: "https://data.{region}.algolia.com".replacingOccurrences(
+                of: "{region}",
+                with: region.rawValue
+            )) else {
                 throw AlgoliaError.runtimeError("Malformed URL")
             }
 

@@ -33,13 +33,13 @@ open class AbtestingClient {
     }
 
     /// - parameter addABTestsRequest: (body)
-    /// - returns: ABTestResponse
+    /// - returns: AbtestingABTestResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func addABTests(
-        addABTestsRequest: AddABTestsRequest,
+        addABTestsRequest: AbtestingAddABTestsRequest,
         requestOptions: RequestOptions? = nil
-    ) async throws -> ABTestResponse {
-        let response: Response<ABTestResponse> = try await addABTestsWithHTTPInfo(
+    ) async throws -> AbtestingABTestResponse {
+        let response: Response<AbtestingABTestResponse> = try await addABTestsWithHTTPInfo(
             addABTestsRequest: addABTestsRequest,
             requestOptions: requestOptions
         )
@@ -56,12 +56,12 @@ open class AbtestingClient {
     //  - editSettings
     //
     // - parameter addABTestsRequest: (body)
-    // - returns: RequestBuilder<ABTestResponse>
+    // - returns: RequestBuilder<AbtestingABTestResponse>
 
     open func addABTestsWithHTTPInfo(
-        addABTestsRequest: AddABTestsRequest,
+        addABTestsRequest: AbtestingAddABTestsRequest,
         requestOptions userRequestOptions: RequestOptions? = nil
-    ) async throws -> Response<ABTestResponse> {
+    ) async throws -> Response<AbtestingABTestResponse> {
         let resourcePath = "/2/abtests"
         let body = addABTestsRequest
         let queryParameters: [String: Any?]? = nil
@@ -74,11 +74,14 @@ open class AbtestingClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - returns: AnyCodable
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
@@ -100,10 +103,10 @@ open class AbtestingClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     // - returns: RequestBuilder<AnyCodable>
@@ -136,11 +139,14 @@ open class AbtestingClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - returns: AnyCodable
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
@@ -162,10 +168,10 @@ open class AbtestingClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     // - returns: RequestBuilder<AnyCodable>
@@ -198,11 +204,14 @@ open class AbtestingClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - parameter body: (body) Parameters to send with the custom request. (optional)
     /// - returns: AnyCodable
@@ -227,10 +236,10 @@ open class AbtestingClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     //
@@ -266,11 +275,14 @@ open class AbtestingClient {
             method: "POST",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - parameter body: (body) Parameters to send with the custom request. (optional)
     /// - returns: AnyCodable
@@ -295,10 +307,10 @@ open class AbtestingClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     //
@@ -334,15 +346,18 @@ open class AbtestingClient {
             method: "PUT",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter id: (path) Unique A/B test identifier.
-    /// - returns: ABTestResponse
+    /// - returns: AbtestingABTestResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open func deleteABTest(id: Int, requestOptions: RequestOptions? = nil) async throws -> ABTestResponse {
-        let response: Response<ABTestResponse> = try await deleteABTestWithHTTPInfo(
+    open func deleteABTest(id: Int, requestOptions: RequestOptions? = nil) async throws -> AbtestingABTestResponse {
+        let response: Response<AbtestingABTestResponse> = try await deleteABTestWithHTTPInfo(
             id: id,
             requestOptions: requestOptions
         )
@@ -359,12 +374,12 @@ open class AbtestingClient {
     //  - editSettings
     //
     // - parameter id: (path) Unique A/B test identifier.
-    // - returns: RequestBuilder<ABTestResponse>
+    // - returns: RequestBuilder<AbtestingABTestResponse>
 
     open func deleteABTestWithHTTPInfo(
         id: Int,
         requestOptions userRequestOptions: RequestOptions? = nil
-    ) async throws -> Response<ABTestResponse> {
+    ) async throws -> Response<AbtestingABTestResponse> {
         var resourcePath = "/2/abtests/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
@@ -380,18 +395,21 @@ open class AbtestingClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter estimateABTestRequest: (body)
-    /// - returns: EstimateABTestResponse
+    /// - returns: AbtestingEstimateABTestResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func estimateABTest(
-        estimateABTestRequest: EstimateABTestRequest,
+        estimateABTestRequest: AbtestingEstimateABTestRequest,
         requestOptions: RequestOptions? = nil
-    ) async throws -> EstimateABTestResponse {
-        let response: Response<EstimateABTestResponse> = try await estimateABTestWithHTTPInfo(
+    ) async throws -> AbtestingEstimateABTestResponse {
+        let response: Response<AbtestingEstimateABTestResponse> = try await estimateABTestWithHTTPInfo(
             estimateABTestRequest: estimateABTestRequest,
             requestOptions: requestOptions
         )
@@ -409,12 +427,12 @@ open class AbtestingClient {
     //  - analytics
     //
     // - parameter estimateABTestRequest: (body)
-    // - returns: RequestBuilder<EstimateABTestResponse>
+    // - returns: RequestBuilder<AbtestingEstimateABTestResponse>
 
     open func estimateABTestWithHTTPInfo(
-        estimateABTestRequest: EstimateABTestRequest,
+        estimateABTestRequest: AbtestingEstimateABTestRequest,
         requestOptions userRequestOptions: RequestOptions? = nil
-    ) async throws -> Response<EstimateABTestResponse> {
+    ) async throws -> Response<AbtestingEstimateABTestResponse> {
         let resourcePath = "/2/abtests/estimate"
         let body = estimateABTestRequest
         let queryParameters: [String: Any?]? = nil
@@ -427,15 +445,21 @@ open class AbtestingClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter id: (path) Unique A/B test identifier.
-    /// - returns: ABTest
+    /// - returns: AbtestingABTest
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open func getABTest(id: Int, requestOptions: RequestOptions? = nil) async throws -> ABTest {
-        let response: Response<ABTest> = try await getABTestWithHTTPInfo(id: id, requestOptions: requestOptions)
+    open func getABTest(id: Int, requestOptions: RequestOptions? = nil) async throws -> AbtestingABTest {
+        let response: Response<AbtestingABTest> = try await getABTestWithHTTPInfo(
+            id: id,
+            requestOptions: requestOptions
+        )
 
         guard let body = response.body else {
             throw AlgoliaError.missingData
@@ -449,12 +473,12 @@ open class AbtestingClient {
     //  - analytics
     //
     // - parameter id: (path) Unique A/B test identifier.
-    // - returns: RequestBuilder<ABTest>
+    // - returns: RequestBuilder<AbtestingABTest>
 
     open func getABTestWithHTTPInfo(
         id: Int,
         requestOptions userRequestOptions: RequestOptions? = nil
-    ) async throws -> Response<ABTest> {
+    ) async throws -> Response<AbtestingABTest> {
         var resourcePath = "/2/abtests/{id}"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
@@ -470,7 +494,10 @@ open class AbtestingClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -480,7 +507,7 @@ open class AbtestingClient {
     /// included in the response. (optional)
     /// - parameter indexSuffix: (query) Index name suffix. Only A/B tests for indices ending with this string are
     /// included in the response. (optional)
-    /// - returns: ListABTestsResponse
+    /// - returns: AbtestingListABTestsResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func listABTests(
         offset: Int? = nil,
@@ -488,8 +515,8 @@ open class AbtestingClient {
         indexPrefix: String? = nil,
         indexSuffix: String? = nil,
         requestOptions: RequestOptions? = nil
-    ) async throws -> ListABTestsResponse {
-        let response: Response<ListABTestsResponse> = try await listABTestsWithHTTPInfo(
+    ) async throws -> AbtestingListABTestsResponse {
+        let response: Response<AbtestingListABTestsResponse> = try await listABTestsWithHTTPInfo(
             offset: offset,
             limit: limit,
             indexPrefix: indexPrefix,
@@ -517,7 +544,7 @@ open class AbtestingClient {
     //
     // - parameter indexSuffix: (query) Index name suffix. Only A/B tests for indices ending with this string are
     // included in the response. (optional)
-    // - returns: RequestBuilder<ListABTestsResponse>
+    // - returns: RequestBuilder<AbtestingListABTestsResponse>
 
     open func listABTestsWithHTTPInfo(
         offset: Int? = nil,
@@ -525,7 +552,7 @@ open class AbtestingClient {
         indexPrefix: String? = nil,
         indexSuffix: String? = nil,
         requestOptions userRequestOptions: RequestOptions? = nil
-    ) async throws -> Response<ListABTestsResponse> {
+    ) async throws -> Response<AbtestingListABTestsResponse> {
         let resourcePath = "/2/abtests"
         let body: AnyCodable? = nil
         let queryParameters: [String: Any?] = [
@@ -543,18 +570,21 @@ open class AbtestingClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter scheduleABTestsRequest: (body)
-    /// - returns: ScheduleABTestResponse
+    /// - returns: AbtestingScheduleABTestResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func scheduleABTest(
-        scheduleABTestsRequest: ScheduleABTestsRequest,
+        scheduleABTestsRequest: AbtestingScheduleABTestsRequest,
         requestOptions: RequestOptions? = nil
-    ) async throws -> ScheduleABTestResponse {
-        let response: Response<ScheduleABTestResponse> = try await scheduleABTestWithHTTPInfo(
+    ) async throws -> AbtestingScheduleABTestResponse {
+        let response: Response<AbtestingScheduleABTestResponse> = try await scheduleABTestWithHTTPInfo(
             scheduleABTestsRequest: scheduleABTestsRequest,
             requestOptions: requestOptions
         )
@@ -571,12 +601,12 @@ open class AbtestingClient {
     //  - editSettings
     //
     // - parameter scheduleABTestsRequest: (body)
-    // - returns: RequestBuilder<ScheduleABTestResponse>
+    // - returns: RequestBuilder<AbtestingScheduleABTestResponse>
 
     open func scheduleABTestWithHTTPInfo(
-        scheduleABTestsRequest: ScheduleABTestsRequest,
+        scheduleABTestsRequest: AbtestingScheduleABTestsRequest,
         requestOptions userRequestOptions: RequestOptions? = nil
-    ) async throws -> Response<ScheduleABTestResponse> {
+    ) async throws -> Response<AbtestingScheduleABTestResponse> {
         let resourcePath = "/2/abtests/schedule"
         let body = scheduleABTestsRequest
         let queryParameters: [String: Any?]? = nil
@@ -589,15 +619,18 @@ open class AbtestingClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter id: (path) Unique A/B test identifier.
-    /// - returns: ABTestResponse
+    /// - returns: AbtestingABTestResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open func stopABTest(id: Int, requestOptions: RequestOptions? = nil) async throws -> ABTestResponse {
-        let response: Response<ABTestResponse> = try await stopABTestWithHTTPInfo(
+    open func stopABTest(id: Int, requestOptions: RequestOptions? = nil) async throws -> AbtestingABTestResponse {
+        let response: Response<AbtestingABTestResponse> = try await stopABTestWithHTTPInfo(
             id: id,
             requestOptions: requestOptions
         )
@@ -614,12 +647,12 @@ open class AbtestingClient {
     //  - editSettings
     //
     // - parameter id: (path) Unique A/B test identifier.
-    // - returns: RequestBuilder<ABTestResponse>
+    // - returns: RequestBuilder<AbtestingABTestResponse>
 
     open func stopABTestWithHTTPInfo(
         id: Int,
         requestOptions userRequestOptions: RequestOptions? = nil
-    ) async throws -> Response<ABTestResponse> {
+    ) async throws -> Response<AbtestingABTestResponse> {
         var resourcePath = "/2/abtests/{id}/stop"
         let idPreEscape = "\(APIHelper.mapValueToPathItem(id))"
         let idPostEscape = idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
@@ -635,7 +668,10 @@ open class AbtestingClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 }

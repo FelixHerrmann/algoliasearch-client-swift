@@ -11,31 +11,42 @@ public struct Transformation: Codable, JSONEncodable {
     public var transformationID: String
     /// The authentications associated with the current transformation.
     public var authenticationIDs: [String]?
-    /// The source code of the transformation.
+    /// It is deprecated. Use the `input` field with proper `type` instead to specify the transformation code.
+    @available(*, deprecated, message: "This property is deprecated.")
     public var code: String
+    public var type: TransformationType?
+    public var input: TransformationInput?
     /// The uniquely identified name of your transformation.
     public var name: String
     /// A descriptive name for your transformation of what it does.
     public var description: String?
+    /// Owner of the resource.
+    public var owner: String?
     /// Date of creation in RFC 3339 format.
     public var createdAt: String
     /// Date of last update in RFC 3339 format.
-    public var updatedAt: String?
+    public var updatedAt: String
 
     public init(
         transformationID: String,
         authenticationIDs: [String]? = nil,
         code: String,
+        type: TransformationType? = nil,
+        input: TransformationInput? = nil,
         name: String,
         description: String? = nil,
+        owner: String? = nil,
         createdAt: String,
-        updatedAt: String? = nil
+        updatedAt: String
     ) {
         self.transformationID = transformationID
         self.authenticationIDs = authenticationIDs
         self.code = code
+        self.type = type
+        self.input = input
         self.name = name
         self.description = description
+        self.owner = owner
         self.createdAt = createdAt
         self.updatedAt = updatedAt
     }
@@ -44,8 +55,11 @@ public struct Transformation: Codable, JSONEncodable {
         case transformationID
         case authenticationIDs
         case code
+        case type
+        case input
         case name
         case description
+        case owner
         case createdAt
         case updatedAt
     }
@@ -57,10 +71,13 @@ public struct Transformation: Codable, JSONEncodable {
         try container.encode(self.transformationID, forKey: .transformationID)
         try container.encodeIfPresent(self.authenticationIDs, forKey: .authenticationIDs)
         try container.encode(self.code, forKey: .code)
+        try container.encodeIfPresent(self.type, forKey: .type)
+        try container.encodeIfPresent(self.input, forKey: .input)
         try container.encode(self.name, forKey: .name)
         try container.encodeIfPresent(self.description, forKey: .description)
+        try container.encodeIfPresent(self.owner, forKey: .owner)
         try container.encode(self.createdAt, forKey: .createdAt)
-        try container.encodeIfPresent(self.updatedAt, forKey: .updatedAt)
+        try container.encode(self.updatedAt, forKey: .updatedAt)
     }
 }
 
@@ -69,8 +86,11 @@ extension Transformation: Equatable {
         lhs.transformationID == rhs.transformationID &&
             lhs.authenticationIDs == rhs.authenticationIDs &&
             lhs.code == rhs.code &&
+            lhs.type == rhs.type &&
+            lhs.input == rhs.input &&
             lhs.name == rhs.name &&
             lhs.description == rhs.description &&
+            lhs.owner == rhs.owner &&
             lhs.createdAt == rhs.createdAt &&
             lhs.updatedAt == rhs.updatedAt
     }
@@ -81,9 +101,12 @@ extension Transformation: Hashable {
         hasher.combine(self.transformationID.hashValue)
         hasher.combine(self.authenticationIDs?.hashValue)
         hasher.combine(self.code.hashValue)
+        hasher.combine(self.type?.hashValue)
+        hasher.combine(self.input?.hashValue)
         hasher.combine(self.name.hashValue)
         hasher.combine(self.description?.hashValue)
+        hasher.combine(self.owner?.hashValue)
         hasher.combine(self.createdAt.hashValue)
-        hasher.combine(self.updatedAt?.hashValue)
+        hasher.combine(self.updatedAt.hashValue)
     }
 }

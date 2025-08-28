@@ -32,7 +32,7 @@ open class MonitoringClient {
         self.transporter.setClientApiKey(apiKey: apiKey)
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - returns: AnyCodable
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
@@ -54,10 +54,10 @@ open class MonitoringClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     // - returns: RequestBuilder<AnyCodable>
@@ -90,11 +90,14 @@ open class MonitoringClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - returns: AnyCodable
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
@@ -116,10 +119,10 @@ open class MonitoringClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     // - returns: RequestBuilder<AnyCodable>
@@ -152,11 +155,14 @@ open class MonitoringClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - parameter body: (body) Parameters to send with the custom request. (optional)
     /// - returns: AnyCodable
@@ -181,10 +187,10 @@ open class MonitoringClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     //
@@ -220,11 +226,14 @@ open class MonitoringClient {
             method: "POST",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - parameter body: (body) Parameters to send with the custom request. (optional)
     /// - returns: AnyCodable
@@ -249,10 +258,10 @@ open class MonitoringClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     //
@@ -288,7 +297,10 @@ open class MonitoringClient {
             method: "PUT",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -346,7 +358,10 @@ open class MonitoringClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -401,7 +416,10 @@ open class MonitoringClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -435,7 +453,10 @@ open class MonitoringClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -493,7 +514,10 @@ open class MonitoringClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -548,7 +572,10 @@ open class MonitoringClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -556,9 +583,8 @@ open class MonitoringClient {
     /// description of the API response. To include all metrics, use `*`.
     /// - parameter period: (path) Period over which to aggregate the metrics:  - `minute`. Aggregate the last minute. 1
     /// data point per 10 seconds. - `hour`. Aggregate the last hour. 1 data point per minute. - `day`. Aggregate the
-    /// last
-    /// day. 1 data point per 10 minutes. - `week`. Aggregate the last week. 1 data point per hour. - `month`. Aggregate
-    /// the last month. 1 data point per day.
+    /// last day. 1 data point per 10 minutes. - `week`. Aggregate the last week. 1 data point per hour. - `month`.
+    /// Aggregate the last month. 1 data point per day.
     /// - returns: InfrastructureResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func getMetrics(
@@ -602,8 +628,7 @@ open class MonitoringClient {
     ) async throws -> Response<InfrastructureResponse> {
         var resourcePath = "/1/infrastructure/{metric}/period/{period}"
         let metricPreEscape = "\(APIHelper.mapValueToPathItem(metric))"
-        let metricPostEscape = metricPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let metricPostEscape = metricPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{metric}",
             with: metricPostEscape,
@@ -611,8 +636,7 @@ open class MonitoringClient {
             range: nil
         )
         let periodPreEscape = "\(APIHelper.mapValueToPathItem(period))"
-        let periodPostEscape = periodPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let periodPostEscape = periodPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{period}",
             with: periodPostEscape,
@@ -630,7 +654,10 @@ open class MonitoringClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -688,7 +715,10 @@ open class MonitoringClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -723,7 +753,10 @@ open class MonitoringClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -757,7 +790,10 @@ open class MonitoringClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 }

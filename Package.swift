@@ -13,7 +13,9 @@ let package = Package(
     products: [
         .library(name: "Core", targets: ["Core"]),
         .library(name: "Abtesting", targets: ["Abtesting"]),
+        .library(name: "AbtestingV3", targets: ["AbtestingV3"]),
         .library(name: "Analytics", targets: ["Analytics"]),
+        .library(name: "Composition", targets: ["Composition"]),
         .library(name: "Ingestion", targets: ["Ingestion"]),
         .library(name: "Insights", targets: ["Insights"]),
         .library(name: "Monitoring", targets: ["Monitoring"]),
@@ -30,7 +32,17 @@ let package = Package(
             resources: [.copy("../../PrivacyInfo.xcprivacy")]
         ),
         .target(
+            name: "AbtestingV3",
+            dependencies: [.target(name: "Core")],
+            resources: [.copy("../../PrivacyInfo.xcprivacy")]
+        ),
+        .target(
             name: "Analytics",
+            dependencies: [.target(name: "Core")],
+            resources: [.copy("../../PrivacyInfo.xcprivacy")]
+        ),
+        .target(
+            name: "Composition",
             dependencies: [.target(name: "Core")],
             resources: [.copy("../../PrivacyInfo.xcprivacy")]
         ),

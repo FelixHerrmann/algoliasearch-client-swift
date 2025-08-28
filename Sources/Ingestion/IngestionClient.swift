@@ -76,7 +76,10 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -124,7 +127,10 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -172,7 +178,10 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -217,12 +226,16 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter taskCreate: (body) Request body for creating a task.
     /// - returns: TaskCreateResponse
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func createTaskV1(
         taskCreate: TaskCreateV1,
@@ -240,11 +253,12 @@ open class IngestionClient {
         return body
     }
 
-    // Creates a new task using the v1 endpoint, please use `createTask` instead.
-    //
-    //
-    // - parameter taskCreate: (body) Request body for creating a task.
-    // - returns: RequestBuilder<TaskCreateResponse>
+    /// Creates a new task using the v1 endpoint, please use `createTask` instead.
+    ///
+    ///
+    /// - parameter taskCreate: (body) Request body for creating a task.
+    /// - returns: RequestBuilder<TaskCreateResponse>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func createTaskV1WithHTTPInfo(
         taskCreate: TaskCreateV1,
@@ -262,7 +276,10 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -307,11 +324,14 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - returns: AnyCodable
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
@@ -333,10 +353,10 @@ open class IngestionClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     // - returns: RequestBuilder<AnyCodable>
@@ -369,11 +389,14 @@ open class IngestionClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - returns: AnyCodable
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
@@ -395,10 +418,10 @@ open class IngestionClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     // - returns: RequestBuilder<AnyCodable>
@@ -431,11 +454,14 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - parameter body: (body) Parameters to send with the custom request. (optional)
     /// - returns: AnyCodable
@@ -460,10 +486,10 @@ open class IngestionClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     //
@@ -499,11 +525,14 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - parameter body: (body) Parameters to send with the custom request. (optional)
     /// - returns: AnyCodable
@@ -528,10 +557,10 @@ open class IngestionClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     //
@@ -567,7 +596,10 @@ open class IngestionClient {
             method: "PUT",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -629,7 +661,10 @@ open class IngestionClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -690,7 +725,10 @@ open class IngestionClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -748,7 +786,10 @@ open class IngestionClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -784,8 +825,7 @@ open class IngestionClient {
 
         var resourcePath = "/2/tasks/{taskID}"
         let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{taskID}",
             with: taskIDPostEscape,
@@ -803,12 +843,16 @@ open class IngestionClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter taskID: (path) Unique identifier of a task.
     /// - returns: DeleteResponse
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func deleteTaskV1(taskID: String, requestOptions: RequestOptions? = nil) async throws -> DeleteResponse {
         let response: Response<DeleteResponse> = try await deleteTaskV1WithHTTPInfo(
@@ -823,11 +867,12 @@ open class IngestionClient {
         return body
     }
 
-    // Deletes a task by its ID using the v1 endpoint, please use `deleteTask` instead.
-    //
-    //
-    // - parameter taskID: (path) Unique identifier of a task.
-    // - returns: RequestBuilder<DeleteResponse>
+    /// Deletes a task by its ID using the v1 endpoint, please use `deleteTask` instead.
+    ///
+    ///
+    /// - parameter taskID: (path) Unique identifier of a task.
+    /// - returns: RequestBuilder<DeleteResponse>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func deleteTaskV1WithHTTPInfo(
         taskID: String,
@@ -839,8 +884,7 @@ open class IngestionClient {
 
         var resourcePath = "/1/tasks/{taskID}"
         let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{taskID}",
             with: taskIDPostEscape,
@@ -858,7 +902,10 @@ open class IngestionClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -916,7 +963,10 @@ open class IngestionClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -955,8 +1005,7 @@ open class IngestionClient {
 
         var resourcePath = "/2/tasks/{taskID}/disable"
         let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{taskID}",
             with: taskIDPostEscape,
@@ -974,7 +1023,10 @@ open class IngestionClient {
             method: "PUT",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1015,8 +1067,7 @@ open class IngestionClient {
 
         var resourcePath = "/1/tasks/{taskID}/disable"
         let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{taskID}",
             with: taskIDPostEscape,
@@ -1034,7 +1085,10 @@ open class IngestionClient {
             method: "PUT",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1073,8 +1127,7 @@ open class IngestionClient {
 
         var resourcePath = "/2/tasks/{taskID}/enable"
         let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{taskID}",
             with: taskIDPostEscape,
@@ -1092,12 +1145,16 @@ open class IngestionClient {
             method: "PUT",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter taskID: (path) Unique identifier of a task.
     /// - returns: TaskUpdateResponse
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func enableTaskV1(taskID: String, requestOptions: RequestOptions? = nil) async throws -> TaskUpdateResponse {
         let response: Response<TaskUpdateResponse> = try await enableTaskV1WithHTTPInfo(
@@ -1112,14 +1169,15 @@ open class IngestionClient {
         return body
     }
 
-    // Enables a task using the v1 endpoint, please use `enableTask` instead.
-    // Required API Key ACLs:
-    //  - addObject
-    //  - deleteIndex
-    //  - editSettings
-    //
-    // - parameter taskID: (path) Unique identifier of a task.
-    // - returns: RequestBuilder<TaskUpdateResponse>
+    /// Enables a task using the v1 endpoint, please use `enableTask` instead.
+    /// Required API Key ACLs:
+    ///  - addObject
+    ///  - deleteIndex
+    ///  - editSettings
+    ///
+    /// - parameter taskID: (path) Unique identifier of a task.
+    /// - returns: RequestBuilder<TaskUpdateResponse>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func enableTaskV1WithHTTPInfo(
         taskID: String,
@@ -1131,8 +1189,7 @@ open class IngestionClient {
 
         var resourcePath = "/1/tasks/{taskID}/enable"
         let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{taskID}",
             with: taskIDPostEscape,
@@ -1150,7 +1207,10 @@ open class IngestionClient {
             method: "PUT",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1211,7 +1271,10 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1269,16 +1332,23 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter runID: (path) Unique identifier of a task run.
     /// - parameter eventID: (path) Unique identifier of an event.
-    /// - returns: Event
+    /// - returns: IngestionEvent
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open func getEvent(runID: String, eventID: String, requestOptions: RequestOptions? = nil) async throws -> Event {
-        let response: Response<Event> = try await getEventWithHTTPInfo(
+    open func getEvent(
+        runID: String,
+        eventID: String,
+        requestOptions: RequestOptions? = nil
+    ) async throws -> IngestionEvent {
+        let response: Response<IngestionEvent> = try await getEventWithHTTPInfo(
             runID: runID,
             eventID: eventID,
             requestOptions: requestOptions
@@ -1300,13 +1370,13 @@ open class IngestionClient {
     // - parameter runID: (path) Unique identifier of a task run.
     //
     // - parameter eventID: (path) Unique identifier of an event.
-    // - returns: RequestBuilder<Event>
+    // - returns: RequestBuilder<IngestionEvent>
 
     open func getEventWithHTTPInfo(
         runID: String,
         eventID: String,
         requestOptions userRequestOptions: RequestOptions? = nil
-    ) async throws -> Response<Event> {
+    ) async throws -> Response<IngestionEvent> {
         guard !runID.isEmpty else {
             throw AlgoliaError.invalidArgument("runID", "getEvent")
         }
@@ -1344,7 +1414,10 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1398,7 +1471,10 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1456,7 +1532,10 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1495,8 +1574,7 @@ open class IngestionClient {
 
         var resourcePath = "/2/tasks/{taskID}"
         let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{taskID}",
             with: taskIDPostEscape,
@@ -1514,12 +1592,16 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter taskID: (path) Unique identifier of a task.
     /// - returns: TaskV1
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func getTaskV1(taskID: String, requestOptions: RequestOptions? = nil) async throws -> TaskV1 {
         let response: Response<TaskV1> = try await getTaskV1WithHTTPInfo(taskID: taskID, requestOptions: requestOptions)
@@ -1531,14 +1613,15 @@ open class IngestionClient {
         return body
     }
 
-    // Retrieves a task by its ID using the v1 endpoint, please use `getTask` instead.
-    // Required API Key ACLs:
-    //  - addObject
-    //  - deleteIndex
-    //  - editSettings
-    //
-    // - parameter taskID: (path) Unique identifier of a task.
-    // - returns: RequestBuilder<TaskV1>
+    /// Retrieves a task by its ID using the v1 endpoint, please use `getTask` instead.
+    /// Required API Key ACLs:
+    ///  - addObject
+    ///  - deleteIndex
+    ///  - editSettings
+    ///
+    /// - parameter taskID: (path) Unique identifier of a task.
+    /// - returns: RequestBuilder<TaskV1>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func getTaskV1WithHTTPInfo(
         taskID: String,
@@ -1550,8 +1633,7 @@ open class IngestionClient {
 
         var resourcePath = "/1/tasks/{taskID}"
         let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{taskID}",
             with: taskIDPostEscape,
@@ -1569,7 +1651,10 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1630,7 +1715,10 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1715,7 +1803,10 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1807,7 +1898,10 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1828,7 +1922,7 @@ open class IngestionClient {
         runID: String,
         itemsPerPage: Int? = nil,
         page: Int? = nil,
-        status: [EventStatus]? = nil,
+        status: [IngestionEventStatus]? = nil,
         type: [IngestionEventType]? = nil,
         sort: EventSortKeys? = nil,
         order: OrderKeys? = nil,
@@ -1887,7 +1981,7 @@ open class IngestionClient {
         runID: String,
         itemsPerPage: Int? = nil,
         page: Int? = nil,
-        status: [EventStatus]? = nil,
+        status: [IngestionEventStatus]? = nil,
         type: [IngestionEventType]? = nil,
         sort: EventSortKeys? = nil,
         order: OrderKeys? = nil,
@@ -1928,7 +2022,10 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2038,7 +2135,10 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2125,7 +2225,10 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2134,8 +2237,11 @@ open class IngestionClient {
     /// - parameter action: (query) Actions for filtering the list of tasks. (optional)
     /// - parameter enabled: (query) Whether to filter the list of tasks by the `enabled` status. (optional)
     /// - parameter sourceID: (query) Source IDs for filtering the list of tasks. (optional)
+    /// - parameter sourceType: (query) Filters the tasks with the specified source type. (optional)
     /// - parameter destinationID: (query) Destination IDs for filtering the list of tasks. (optional)
     /// - parameter triggerType: (query) Type of task trigger for filtering the list of tasks. (optional)
+    /// - parameter withEmailNotifications: (query) If specified, the response only includes tasks with
+    /// notifications.email.enabled set to this value. (optional)
     /// - parameter sort: (query) Property by which to sort the list of tasks. (optional)
     /// - parameter order: (query) Sort order of the response, ascending or descending. (optional)
     /// - returns: ListTasksResponse
@@ -2146,8 +2252,10 @@ open class IngestionClient {
         action: [ActionType]? = nil,
         enabled: Bool? = nil,
         sourceID: [String]? = nil,
+        sourceType: [SourceType]? = nil,
         destinationID: [String]? = nil,
         triggerType: [TriggerType]? = nil,
+        withEmailNotifications: Bool? = nil,
         sort: TaskSortKeys? = nil,
         order: OrderKeys? = nil,
         requestOptions: RequestOptions? = nil
@@ -2158,8 +2266,10 @@ open class IngestionClient {
             action: action,
             enabled: enabled,
             sourceID: sourceID,
+            sourceType: sourceType,
             destinationID: destinationID,
             triggerType: triggerType,
+            withEmailNotifications: withEmailNotifications,
             sort: sort,
             order: order,
             requestOptions: requestOptions
@@ -2188,9 +2298,14 @@ open class IngestionClient {
     //
     // - parameter sourceID: (query) Source IDs for filtering the list of tasks. (optional)
     //
+    // - parameter sourceType: (query) Filters the tasks with the specified source type. (optional)
+    //
     // - parameter destinationID: (query) Destination IDs for filtering the list of tasks. (optional)
     //
     // - parameter triggerType: (query) Type of task trigger for filtering the list of tasks. (optional)
+    //
+    // - parameter withEmailNotifications: (query) If specified, the response only includes tasks with
+    // notifications.email.enabled set to this value. (optional)
     //
     // - parameter sort: (query) Property by which to sort the list of tasks. (optional)
     //
@@ -2203,8 +2318,10 @@ open class IngestionClient {
         action: [ActionType]? = nil,
         enabled: Bool? = nil,
         sourceID: [String]? = nil,
+        sourceType: [SourceType]? = nil,
         destinationID: [String]? = nil,
         triggerType: [TriggerType]? = nil,
+        withEmailNotifications: Bool? = nil,
         sort: TaskSortKeys? = nil,
         order: OrderKeys? = nil,
         requestOptions userRequestOptions: RequestOptions? = nil
@@ -2217,8 +2334,10 @@ open class IngestionClient {
             "action": action?.encodeToJSON(),
             "enabled": enabled?.encodeToJSON(),
             "sourceID": sourceID?.encodeToJSON(),
+            "sourceType": sourceType?.encodeToJSON(),
             "destinationID": destinationID?.encodeToJSON(),
             "triggerType": triggerType?.encodeToJSON(),
+            "withEmailNotifications": withEmailNotifications?.encodeToJSON(),
             "sort": sort?.encodeToJSON(),
             "order": order?.encodeToJSON(),
         ]
@@ -2231,7 +2350,10 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2245,6 +2367,7 @@ open class IngestionClient {
     /// - parameter sort: (query) Property by which to sort the list of tasks. (optional)
     /// - parameter order: (query) Sort order of the response, ascending or descending. (optional)
     /// - returns: ListTasksResponseV1
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func listTasksV1(
         itemsPerPage: Int? = nil,
@@ -2278,30 +2401,31 @@ open class IngestionClient {
         return body
     }
 
-    // Retrieves a list of tasks using the v1 endpoint, please use `getTasks` instead.
-    // Required API Key ACLs:
-    //  - addObject
-    //  - deleteIndex
-    //  - editSettings
-    //
-    // - parameter itemsPerPage: (query) Number of items per page. (optional, default to 10)
-    //
-    // - parameter page: (query) Page number of the paginated API response. (optional)
-    //
-    // - parameter action: (query) Actions for filtering the list of tasks. (optional)
-    //
-    // - parameter enabled: (query) Whether to filter the list of tasks by the `enabled` status. (optional)
-    //
-    // - parameter sourceID: (query) Source IDs for filtering the list of tasks. (optional)
-    //
-    // - parameter destinationID: (query) Destination IDs for filtering the list of tasks. (optional)
-    //
-    // - parameter triggerType: (query) Type of task trigger for filtering the list of tasks. (optional)
-    //
-    // - parameter sort: (query) Property by which to sort the list of tasks. (optional)
-    //
-    // - parameter order: (query) Sort order of the response, ascending or descending. (optional)
-    // - returns: RequestBuilder<ListTasksResponseV1>
+    /// Retrieves a list of tasks using the v1 endpoint, please use `getTasks` instead.
+    /// Required API Key ACLs:
+    ///  - addObject
+    ///  - deleteIndex
+    ///  - editSettings
+    ///
+    /// - parameter itemsPerPage: (query) Number of items per page. (optional, default to 10)
+    ///
+    /// - parameter page: (query) Page number of the paginated API response. (optional)
+    ///
+    /// - parameter action: (query) Actions for filtering the list of tasks. (optional)
+    ///
+    /// - parameter enabled: (query) Whether to filter the list of tasks by the `enabled` status. (optional)
+    ///
+    /// - parameter sourceID: (query) Source IDs for filtering the list of tasks. (optional)
+    ///
+    /// - parameter destinationID: (query) Destination IDs for filtering the list of tasks. (optional)
+    ///
+    /// - parameter triggerType: (query) Type of task trigger for filtering the list of tasks. (optional)
+    ///
+    /// - parameter sort: (query) Property by which to sort the list of tasks. (optional)
+    ///
+    /// - parameter order: (query) Sort order of the response, ascending or descending. (optional)
+    /// - returns: RequestBuilder<ListTasksResponseV1>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func listTasksV1WithHTTPInfo(
         itemsPerPage: Int? = nil,
@@ -2337,7 +2461,10 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2408,23 +2535,34 @@ open class IngestionClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter taskID: (path) Unique identifier of a task.
-    /// - parameter pushTaskPayload: (body) Request body of a Search API `batch` request that will be pushed in the
-    /// Connectors pipeline.
-    /// - returns: RunResponse
+    /// - parameter indexName: (path) Name of the index on which to perform the operation.
+    /// - parameter pushTaskPayload: (body)
+    /// - parameter watch: (query) When provided, the push operation will be synchronous and the API will wait for the
+    /// ingestion to be finished before responding. (optional)
+    /// - parameter referenceIndexName: (query) This is required when targeting an index that does not have a push
+    /// connector setup (e.g. a tmp index), but you wish to attach another index's transformation to it (e.g. the source
+    /// index name). (optional)
+    /// - returns: IngestionWatchResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open func pushTask(
-        taskID: String,
+    open func push(
+        indexName: String,
         pushTaskPayload: PushTaskPayload,
+        watch: Bool? = nil,
+        referenceIndexName: String? = nil,
         requestOptions: RequestOptions? = nil
-    ) async throws -> RunResponse {
-        let response: Response<RunResponse> = try await pushTaskWithHTTPInfo(
-            taskID: taskID,
+    ) async throws -> IngestionWatchResponse {
+        let response: Response<IngestionWatchResponse> = try await pushWithHTTPInfo(
+            indexName: indexName,
             pushTaskPayload: pushTaskPayload,
+            watch: watch,
+            referenceIndexName: referenceIndexName,
             requestOptions: requestOptions
         )
 
@@ -2435,40 +2573,54 @@ open class IngestionClient {
         return body
     }
 
-    // Push a `batch` request payload through the Pipeline. You can check the status of task pushes with the
-    // observability endpoints.
+    // Pushes records through the Pipeline, directly to an index. You can make the call synchronous by providing the
+    // `watch` parameter, for asynchronous calls, you can use the observability endpoints and/or debugger dashboard to
+    // see the status of your task. If you want to leverage the [pre-indexing data transformation](https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/transform-your-data/),
+    // this is the recommended way of ingesting your records. This method is similar to `pushTask`, but requires an
+    // `indexName` instead of a `taskID`. If zero or many tasks are found, an error will be returned.
     // Required API Key ACLs:
     //  - addObject
     //  - deleteIndex
     //  - editSettings
     //
-    // - parameter taskID: (path) Unique identifier of a task.
+    // - parameter indexName: (path) Name of the index on which to perform the operation.
     //
-    // - parameter pushTaskPayload: (body) Request body of a Search API `batch` request that will be pushed in the
-    // Connectors pipeline.
-    // - returns: RequestBuilder<RunResponse>
+    // - parameter pushTaskPayload: (body)
+    //
+    // - parameter watch: (query) When provided, the push operation will be synchronous and the API will wait for the
+    // ingestion to be finished before responding. (optional)
+    //
+    // - parameter referenceIndexName: (query) This is required when targeting an index that does not have a push
+    // connector setup (e.g. a tmp index), but you wish to attach another index's transformation to it (e.g. the source
+    // index name). (optional)
+    // - returns: RequestBuilder<IngestionWatchResponse>
 
-    open func pushTaskWithHTTPInfo(
-        taskID: String,
+    open func pushWithHTTPInfo(
+        indexName: String,
         pushTaskPayload: PushTaskPayload,
+        watch: Bool? = nil,
+        referenceIndexName: String? = nil,
         requestOptions userRequestOptions: RequestOptions? = nil
-    ) async throws -> Response<RunResponse> {
-        guard !taskID.isEmpty else {
-            throw AlgoliaError.invalidArgument("taskID", "pushTask")
+    ) async throws -> Response<IngestionWatchResponse> {
+        guard !indexName.isEmpty else {
+            throw AlgoliaError.invalidArgument("indexName", "push")
         }
 
-        var resourcePath = "/2/tasks/{taskID}/push"
-        let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
+        var resourcePath = "/1/push/{indexName}"
+        let indexNamePreEscape = "\(APIHelper.mapValueToPathItem(indexName))"
+        let indexNamePostEscape = indexNamePreEscape
             .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
-            of: "{taskID}",
-            with: taskIDPostEscape,
+            of: "{indexName}",
+            with: indexNamePostEscape,
             options: .literal,
             range: nil
         )
         let body = pushTaskPayload
-        let queryParameters: [String: Any?]? = nil
+        let queryParameters: [String: Any?] = [
+            "watch": watch?.encodeToJSON(),
+            "referenceIndexName": referenceIndexName?.encodeToJSON(),
+        ]
 
         let nillableHeaders: [String: Any?]? = nil
 
@@ -2478,7 +2630,97 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters,
+                readTimeout: 180,
+                writeTimeout: 180
+            ) + userRequestOptions
+        )
+    }
+
+    /// - parameter taskID: (path) Unique identifier of a task.
+    /// - parameter pushTaskPayload: (body)
+    /// - parameter watch: (query) When provided, the push operation will be synchronous and the API will wait for the
+    /// ingestion to be finished before responding. (optional)
+    /// - returns: IngestionWatchResponse
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    open func pushTask(
+        taskID: String,
+        pushTaskPayload: PushTaskPayload,
+        watch: Bool? = nil,
+        requestOptions: RequestOptions? = nil
+    ) async throws -> IngestionWatchResponse {
+        let response: Response<IngestionWatchResponse> = try await pushTaskWithHTTPInfo(
+            taskID: taskID,
+            pushTaskPayload: pushTaskPayload,
+            watch: watch,
+            requestOptions: requestOptions
+        )
+
+        guard let body = response.body else {
+            throw AlgoliaError.missingData
+        }
+
+        return body
+    }
+
+    // Pushes records through the Pipeline, directly to an index. You can make the call synchronous by providing the
+    // `watch` parameter, for asynchronous calls, you can use the observability endpoints and/or debugger dashboard to
+    // see the status of your task. If you want to leverage the [pre-indexing data transformation](https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/transform-your-data/),
+    // this is the recommended way of ingesting your records. This method is similar to `push`, but requires a `taskID`
+    // instead of a `indexName`, which is useful when many `destinations` target the same `indexName`.
+    // Required API Key ACLs:
+    //  - addObject
+    //  - deleteIndex
+    //  - editSettings
+    //
+    // - parameter taskID: (path) Unique identifier of a task.
+    //
+    // - parameter pushTaskPayload: (body)
+    //
+    // - parameter watch: (query) When provided, the push operation will be synchronous and the API will wait for the
+    // ingestion to be finished before responding. (optional)
+    // - returns: RequestBuilder<IngestionWatchResponse>
+
+    open func pushTaskWithHTTPInfo(
+        taskID: String,
+        pushTaskPayload: PushTaskPayload,
+        watch: Bool? = nil,
+        requestOptions userRequestOptions: RequestOptions? = nil
+    ) async throws -> Response<IngestionWatchResponse> {
+        guard !taskID.isEmpty else {
+            throw AlgoliaError.invalidArgument("taskID", "pushTask")
+        }
+
+        var resourcePath = "/2/tasks/{taskID}/push"
+        let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        resourcePath = resourcePath.replacingOccurrences(
+            of: "{taskID}",
+            with: taskIDPostEscape,
+            options: .literal,
+            range: nil
+        )
+        let body = pushTaskPayload
+        let queryParameters: [String: Any?] = [
+            "watch": watch?.encodeToJSON(),
+        ]
+
+        let nillableHeaders: [String: Any?]? = nil
+
+        let headers = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        return try await self.transporter.send(
+            method: "POST",
+            path: resourcePath,
+            data: body,
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters,
+                readTimeout: 180,
+                writeTimeout: 180
+            ) + userRequestOptions
         )
     }
 
@@ -2504,7 +2746,8 @@ open class IngestionClient {
         return body
     }
 
-    // Runs all tasks linked to a source, only available for Shopify sources. It will create 1 run per task.
+    // Runs all tasks linked to a source, only available for Shopify, BigCommerce and commercetools sources. Creates one
+    // run per task.
     // Required API Key ACLs:
     //  - addObject
     //  - deleteIndex
@@ -2545,16 +2788,25 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter taskID: (path) Unique identifier of a task.
+    /// - parameter runTaskPayload: (body)  (optional)
     /// - returns: RunResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open func runTask(taskID: String, requestOptions: RequestOptions? = nil) async throws -> RunResponse {
+    open func runTask(
+        taskID: String,
+        runTaskPayload: RunTaskPayload? = nil,
+        requestOptions: RequestOptions? = nil
+    ) async throws -> RunResponse {
         let response: Response<RunResponse> = try await runTaskWithHTTPInfo(
             taskID: taskID,
+            runTaskPayload: runTaskPayload,
             requestOptions: requestOptions
         )
 
@@ -2572,10 +2824,13 @@ open class IngestionClient {
     //  - editSettings
     //
     // - parameter taskID: (path) Unique identifier of a task.
+    //
+    // - parameter runTaskPayload: (body)  (optional)
     // - returns: RequestBuilder<RunResponse>
 
     open func runTaskWithHTTPInfo(
         taskID: String,
+        runTaskPayload: RunTaskPayload? = nil,
         requestOptions userRequestOptions: RequestOptions? = nil
     ) async throws -> Response<RunResponse> {
         guard !taskID.isEmpty else {
@@ -2584,15 +2839,14 @@ open class IngestionClient {
 
         var resourcePath = "/2/tasks/{taskID}/run"
         let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{taskID}",
             with: taskIDPostEscape,
             options: .literal,
             range: nil
         )
-        let body: AnyCodable? = nil
+        let body = runTaskPayload
         let queryParameters: [String: Any?]? = nil
 
         let nillableHeaders: [String: Any?]? = nil
@@ -2602,17 +2856,27 @@ open class IngestionClient {
         return try await self.transporter.send(
             method: "POST",
             path: resourcePath,
-            data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            data: body ?? AnyCodable(),
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter taskID: (path) Unique identifier of a task.
+    /// - parameter runTaskPayload: (body)  (optional)
     /// - returns: RunResponse
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    open func runTaskV1(taskID: String, requestOptions: RequestOptions? = nil) async throws -> RunResponse {
+    open func runTaskV1(
+        taskID: String,
+        runTaskPayload: RunTaskPayload? = nil,
+        requestOptions: RequestOptions? = nil
+    ) async throws -> RunResponse {
         let response: Response<RunResponse> = try await runTaskV1WithHTTPInfo(
             taskID: taskID,
+            runTaskPayload: runTaskPayload,
             requestOptions: requestOptions
         )
 
@@ -2623,18 +2887,22 @@ open class IngestionClient {
         return body
     }
 
-    // Runs a task using the v1 endpoint, please use `runTask` instead. You can check the status of task runs with the
-    // observability endpoints.
-    // Required API Key ACLs:
-    //  - addObject
-    //  - deleteIndex
-    //  - editSettings
-    //
-    // - parameter taskID: (path) Unique identifier of a task.
-    // - returns: RequestBuilder<RunResponse>
+    /// Runs a task using the v1 endpoint, please use `runTask` instead. You can check the status of task runs with the
+    /// observability endpoints.
+    /// Required API Key ACLs:
+    ///  - addObject
+    ///  - deleteIndex
+    ///  - editSettings
+    ///
+    /// - parameter taskID: (path) Unique identifier of a task.
+    ///
+    /// - parameter runTaskPayload: (body)  (optional)
+    /// - returns: RequestBuilder<RunResponse>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func runTaskV1WithHTTPInfo(
         taskID: String,
+        runTaskPayload: RunTaskPayload? = nil,
         requestOptions userRequestOptions: RequestOptions? = nil
     ) async throws -> Response<RunResponse> {
         guard !taskID.isEmpty else {
@@ -2643,15 +2911,14 @@ open class IngestionClient {
 
         var resourcePath = "/1/tasks/{taskID}/run"
         let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{taskID}",
             with: taskIDPostEscape,
             options: .literal,
             range: nil
         )
-        let body: AnyCodable? = nil
+        let body = runTaskPayload
         let queryParameters: [String: Any?]? = nil
 
         let nillableHeaders: [String: Any?]? = nil
@@ -2661,8 +2928,11 @@ open class IngestionClient {
         return try await self.transporter.send(
             method: "POST",
             path: resourcePath,
-            data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            data: body ?? AnyCodable(),
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2710,7 +2980,10 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2758,7 +3031,10 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2806,7 +3082,10 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2854,12 +3133,16 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter taskSearch: (body)
     /// - returns: [TaskV1]
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func searchTasksV1(taskSearch: TaskSearch, requestOptions: RequestOptions? = nil) async throws -> [TaskV1] {
         let response: Response<[TaskV1]> = try await searchTasksV1WithHTTPInfo(
@@ -2874,14 +3157,15 @@ open class IngestionClient {
         return body
     }
 
-    // Searches for tasks using the v1 endpoint, please use `searchTasks` instead.
-    // Required API Key ACLs:
-    //  - addObject
-    //  - deleteIndex
-    //  - editSettings
-    //
-    // - parameter taskSearch: (body)
-    // - returns: RequestBuilder<[TaskV1]>
+    /// Searches for tasks using the v1 endpoint, please use `searchTasks` instead.
+    /// Required API Key ACLs:
+    ///  - addObject
+    ///  - deleteIndex
+    ///  - editSettings
+    ///
+    /// - parameter taskSearch: (body)
+    /// - returns: RequestBuilder<[TaskV1]>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func searchTasksV1WithHTTPInfo(
         taskSearch: TaskSearch,
@@ -2899,7 +3183,10 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2947,18 +3234,21 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter sourceID: (path) Unique identifier of a source.
-    /// - returns: SourceWatchResponse
+    /// - returns: IngestionWatchResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func triggerDockerSourceDiscover(
         sourceID: String,
         requestOptions: RequestOptions? = nil
-    ) async throws -> SourceWatchResponse {
-        let response: Response<SourceWatchResponse> = try await triggerDockerSourceDiscoverWithHTTPInfo(
+    ) async throws -> IngestionWatchResponse {
+        let response: Response<IngestionWatchResponse> = try await triggerDockerSourceDiscoverWithHTTPInfo(
             sourceID: sourceID,
             requestOptions: requestOptions
         )
@@ -2971,19 +3261,19 @@ open class IngestionClient {
     }
 
     // Triggers a stream-listing request for a source. Triggering stream-listing requests only works with sources with
-    // `type: docker` and `imageType: singer`.
+    // `type: docker` and `imageType: airbyte`.
     // Required API Key ACLs:
     //  - addObject
     //  - deleteIndex
     //  - editSettings
     //
     // - parameter sourceID: (path) Unique identifier of a source.
-    // - returns: RequestBuilder<SourceWatchResponse>
+    // - returns: RequestBuilder<IngestionWatchResponse>
 
     open func triggerDockerSourceDiscoverWithHTTPInfo(
         sourceID: String,
         requestOptions userRequestOptions: RequestOptions? = nil
-    ) async throws -> Response<SourceWatchResponse> {
+    ) async throws -> Response<IngestionWatchResponse> {
         guard !sourceID.isEmpty else {
             throw AlgoliaError.invalidArgument("sourceID", "triggerDockerSourceDiscover")
         }
@@ -3009,7 +3299,12 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters,
+                readTimeout: 180,
+                writeTimeout: 180
+            ) + userRequestOptions
         )
     }
 
@@ -3057,7 +3352,10 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -3124,7 +3422,10 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -3191,7 +3492,10 @@ open class IngestionClient {
             method: "PATCH",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -3258,7 +3562,10 @@ open class IngestionClient {
             method: "PATCH",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -3325,7 +3632,10 @@ open class IngestionClient {
             method: "PATCH",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -3370,8 +3680,7 @@ open class IngestionClient {
 
         var resourcePath = "/2/tasks/{taskID}"
         let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{taskID}",
             with: taskIDPostEscape,
@@ -3389,13 +3698,17 @@ open class IngestionClient {
             method: "PATCH",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter taskID: (path) Unique identifier of a task.
     /// - parameter taskUpdate: (body)
     /// - returns: TaskUpdateResponse
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func updateTaskV1(
         taskID: String,
@@ -3415,13 +3728,14 @@ open class IngestionClient {
         return body
     }
 
-    // Updates a task by its ID using the v1 endpoint, please use `updateTask` instead.
-    //
-    //
-    // - parameter taskID: (path) Unique identifier of a task.
-    //
-    // - parameter taskUpdate: (body)
-    // - returns: RequestBuilder<TaskUpdateResponse>
+    /// Updates a task by its ID using the v1 endpoint, please use `updateTask` instead.
+    ///
+    ///
+    /// - parameter taskID: (path) Unique identifier of a task.
+    ///
+    /// - parameter taskUpdate: (body)
+    /// - returns: RequestBuilder<TaskUpdateResponse>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func updateTaskV1WithHTTPInfo(
         taskID: String,
@@ -3434,8 +3748,7 @@ open class IngestionClient {
 
         var resourcePath = "/1/tasks/{taskID}"
         let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{taskID}",
             with: taskIDPostEscape,
@@ -3453,7 +3766,10 @@ open class IngestionClient {
             method: "PATCH",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -3517,18 +3833,21 @@ open class IngestionClient {
             method: "PUT",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter sourceCreate: (body)  (optional)
-    /// - returns: SourceWatchResponse
+    /// - returns: IngestionWatchResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func validateSource(
         sourceCreate: SourceCreate? = nil,
         requestOptions: RequestOptions? = nil
-    ) async throws -> SourceWatchResponse {
-        let response: Response<SourceWatchResponse> = try await validateSourceWithHTTPInfo(
+    ) async throws -> IngestionWatchResponse {
+        let response: Response<IngestionWatchResponse> = try await validateSourceWithHTTPInfo(
             sourceCreate: sourceCreate,
             requestOptions: requestOptions
         )
@@ -3547,12 +3866,12 @@ open class IngestionClient {
     //  - editSettings
     //
     // - parameter sourceCreate: (body)  (optional)
-    // - returns: RequestBuilder<SourceWatchResponse>
+    // - returns: RequestBuilder<IngestionWatchResponse>
 
     open func validateSourceWithHTTPInfo(
         sourceCreate: SourceCreate? = nil,
         requestOptions userRequestOptions: RequestOptions? = nil
-    ) async throws -> Response<SourceWatchResponse> {
+    ) async throws -> Response<IngestionWatchResponse> {
         let resourcePath = "/1/sources/validate"
         let body = sourceCreate
         let queryParameters: [String: Any?]? = nil
@@ -3565,20 +3884,25 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters,
+                readTimeout: 180,
+                writeTimeout: 180
+            ) + userRequestOptions
         )
     }
 
     /// - parameter sourceID: (path) Unique identifier of a source.
     /// - parameter sourceUpdate: (body)
-    /// - returns: SourceWatchResponse
+    /// - returns: IngestionWatchResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func validateSourceBeforeUpdate(
         sourceID: String,
         sourceUpdate: SourceUpdate,
         requestOptions: RequestOptions? = nil
-    ) async throws -> SourceWatchResponse {
-        let response: Response<SourceWatchResponse> = try await validateSourceBeforeUpdateWithHTTPInfo(
+    ) async throws -> IngestionWatchResponse {
+        let response: Response<IngestionWatchResponse> = try await validateSourceBeforeUpdateWithHTTPInfo(
             sourceID: sourceID,
             sourceUpdate: sourceUpdate,
             requestOptions: requestOptions
@@ -3601,13 +3925,13 @@ open class IngestionClient {
     // - parameter sourceID: (path) Unique identifier of a source.
     //
     // - parameter sourceUpdate: (body)
-    // - returns: RequestBuilder<SourceWatchResponse>
+    // - returns: RequestBuilder<IngestionWatchResponse>
 
     open func validateSourceBeforeUpdateWithHTTPInfo(
         sourceID: String,
         sourceUpdate: SourceUpdate,
         requestOptions userRequestOptions: RequestOptions? = nil
-    ) async throws -> Response<SourceWatchResponse> {
+    ) async throws -> Response<IngestionWatchResponse> {
         guard !sourceID.isEmpty else {
             throw AlgoliaError.invalidArgument("sourceID", "validateSourceBeforeUpdate")
         }
@@ -3633,7 +3957,12 @@ open class IngestionClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters,
+                readTimeout: 180,
+                writeTimeout: 180
+            ) + userRequestOptions
         )
     }
 }

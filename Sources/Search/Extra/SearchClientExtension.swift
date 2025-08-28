@@ -456,7 +456,11 @@ public extension SearchClient {
 
         if waitForTasks {
             for batchResponse in responses {
-                try await self.waitForTask(indexName: indexName, taskID: batchResponse.taskID)
+                try await self.waitForTask(
+                    indexName: indexName,
+                    taskID: batchResponse.taskID,
+                    requestOptions: requestOptions
+                )
             }
         }
 
@@ -468,12 +472,14 @@ public extension SearchClient {
     /// - parameter indexName: The name of the index where to save the objects
     /// - parameter objects: The new objects
     /// - parameter waitForTasks: If we should wait for the batch task to be finished before processing the next one
+    /// - parameter batchSize: The maximum number of objects to include in a batch
     /// - parameter requestOptions: The request options
     /// - returns: [BatchResponse]
     func saveObjects(
         indexName: String,
         objects: [some Encodable],
         waitForTasks: Bool = false,
+        batchSize: Int = 1000,
         requestOptions: RequestOptions? = nil
     ) async throws -> [BatchResponse] {
         try await self.chunkedBatch(
@@ -481,7 +487,7 @@ public extension SearchClient {
             objects: objects,
             action: .addObject,
             waitForTasks: waitForTasks,
-            batchSize: 1000,
+            batchSize: batchSize,
             requestOptions: requestOptions
         )
     }
@@ -491,12 +497,14 @@ public extension SearchClient {
     /// - parameter indexName: The name of the index to delete objectIDs from
     /// - parameter objectIDs: The objectIDs to delete
     /// - parameter waitForTasks: If we should wait for the batch task to be finished before processing the next one
+    /// - parameter batchSize: The maximum number of objects to include in a batch
     /// - parameter requestOptions: The request options
     /// - returns: [BatchResponse]
     func deleteObjects(
         indexName: String,
         objectIDs: [String],
         waitForTasks: Bool = false,
+        batchSize: Int = 1000,
         requestOptions: RequestOptions? = nil
     ) async throws -> [BatchResponse] {
         try await self.chunkedBatch(
@@ -504,7 +512,7 @@ public extension SearchClient {
             objects: objectIDs.map { AnyCodable(["objectID": $0]) },
             action: .deleteObject,
             waitForTasks: waitForTasks,
-            batchSize: 1000,
+            batchSize: batchSize,
             requestOptions: requestOptions
         )
     }
@@ -516,6 +524,7 @@ public extension SearchClient {
     /// - parameter createIfNotExists: To be provided if non-existing objects are passed, otherwise, the call will
     /// fail..
     /// - parameter waitForTasks: If we should wait for the batch task to be finished before processing the next one
+    /// - parameter batchSize: The maximum number of objects to include in a batch
     /// - parameter requestOptions: The request options
     /// - returns: [BatchResponse]
     func partialUpdateObjects(
@@ -523,6 +532,7 @@ public extension SearchClient {
         objects: [some Encodable],
         createIfNotExists: Bool = false,
         waitForTasks: Bool = false,
+        batchSize: Int = 1000,
         requestOptions: RequestOptions? = nil
     ) async throws -> [BatchResponse] {
         try await self.chunkedBatch(
@@ -530,18 +540,19 @@ public extension SearchClient {
             objects: objects,
             action: createIfNotExists ? .partialUpdateObject : .partialUpdateObjectNoCreate,
             waitForTasks: waitForTasks,
-            batchSize: 1000,
+            batchSize: batchSize,
             requestOptions: requestOptions
         )
     }
 
     /// Replace all objects in an index
     ///
-    /// See https://api-clients-automation.netlify.app/docs/add-new-api-client#5-helpers for implementation
+    /// See https://api-clients-automation.netlify.app/docs/custom-helpers/#replaceallobjects for implementation
     /// details.
     /// - parameter indexName: The name of the index where to replace the objects
     /// - parameter objects: The new objects
     /// - parameter batchSize: The maximum number of objects to include in a batch
+    /// - parameter scopes: The `scopes` to keep from the index. Defaults to ['settings', 'rules', 'synonyms']
     /// - parameter requestOptions: The request options
     /// - returns: ReplaceAllObjectsResponse
     @discardableResult
@@ -549,55 +560,62 @@ public extension SearchClient {
         indexName: String,
         objects: [some Encodable],
         batchSize: Int = 1000,
+        scopes: [ScopeType] = [.settings, .rules, .synonyms],
         requestOptions: RequestOptions? = nil
     ) async throws -> ReplaceAllObjectsResponse {
         let tmpIndexName = "\(indexName)_tmp_\(Int.random(in: 1_000_000 ..< 10_000_000))"
 
-        var copyOperationResponse = try await operationIndex(
-            indexName: indexName,
-            operationIndexParams: OperationIndexParams(
-                operation: .copy,
-                destination: tmpIndexName,
-                scope: [.settings, .rules, .synonyms]
-            ),
-            requestOptions: requestOptions
-        )
+        do {
+            var copyOperationResponse = try await operationIndex(
+                indexName: indexName,
+                operationIndexParams: OperationIndexParams(
+                    operation: .copy,
+                    destination: tmpIndexName,
+                    scope: scopes
+                ),
+                requestOptions: requestOptions
+            )
 
-        let batchResponses = try await self.chunkedBatch(
-            indexName: tmpIndexName,
-            objects: objects,
-            waitForTasks: true,
-            batchSize: batchSize,
-            requestOptions: requestOptions
-        )
-        try await self.waitForTask(indexName: tmpIndexName, taskID: copyOperationResponse.taskID)
+            let batchResponses = try await self.chunkedBatch(
+                indexName: tmpIndexName,
+                objects: objects,
+                waitForTasks: true,
+                batchSize: batchSize,
+                requestOptions: requestOptions
+            )
+            try await self.waitForTask(indexName: tmpIndexName, taskID: copyOperationResponse.taskID)
 
-        copyOperationResponse = try await operationIndex(
-            indexName: indexName,
-            operationIndexParams: OperationIndexParams(
-                operation: .copy,
-                destination: tmpIndexName,
-                scope: [.settings, .rules, .synonyms]
-            ),
-            requestOptions: requestOptions
-        )
-        try await self.waitForTask(indexName: tmpIndexName, taskID: copyOperationResponse.taskID)
+            copyOperationResponse = try await operationIndex(
+                indexName: indexName,
+                operationIndexParams: OperationIndexParams(
+                    operation: .copy,
+                    destination: tmpIndexName,
+                    scope: scopes
+                ),
+                requestOptions: requestOptions
+            )
+            try await self.waitForTask(indexName: tmpIndexName, taskID: copyOperationResponse.taskID)
 
-        let moveOperationResponse = try await self.operationIndex(
-            indexName: tmpIndexName,
-            operationIndexParams: OperationIndexParams(
-                operation: .move,
-                destination: indexName
-            ),
-            requestOptions: requestOptions
-        )
-        try await self.waitForTask(indexName: tmpIndexName, taskID: moveOperationResponse.taskID)
+            let moveOperationResponse = try await self.operationIndex(
+                indexName: tmpIndexName,
+                operationIndexParams: OperationIndexParams(
+                    operation: .move,
+                    destination: indexName
+                ),
+                requestOptions: requestOptions
+            )
+            try await self.waitForTask(indexName: tmpIndexName, taskID: moveOperationResponse.taskID)
 
-        return ReplaceAllObjectsResponse(
-            copyOperationResponse: copyOperationResponse,
-            batchResponses: batchResponses,
-            moveOperationResponse: moveOperationResponse
-        )
+            return ReplaceAllObjectsResponse(
+                copyOperationResponse: copyOperationResponse,
+                batchResponses: batchResponses,
+                moveOperationResponse: moveOperationResponse
+            )
+        } catch {
+            _ = try? await self.deleteIndex(indexName: tmpIndexName)
+
+            throw error
+        }
     }
 
     /// Generate a secured API key

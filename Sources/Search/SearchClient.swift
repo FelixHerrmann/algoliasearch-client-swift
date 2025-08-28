@@ -71,15 +71,17 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter indexName: (path) Name of the index on which to perform the operation.
     /// - parameter objectID: (path) Unique record identifier.
     /// - parameter body: (body) The record. A schemaless object with attributes that are useful in the context of
-    /// search
-    /// and discovery.
+    /// search and discovery.
     /// - returns: UpdatedAtWithObjectIdResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func addOrUpdateObject(
@@ -103,9 +105,10 @@ open class SearchClient {
     }
 
     // If a record with the specified object ID exists, the existing record is replaced. Otherwise, a new record is
-    // added to the index.  To update _some_ attributes of an existing record, use the [`partial`
-    // operation](#tag/Records/operation/partialUpdateObject) instead. To add, update, or replace multiple records, use
-    // the [`batch` operation](#tag/Records/operation/batch).
+    // added to the index.  If you want to use auto-generated object IDs, use the [`saveObject`
+    // operation](#tag/Records/operation/saveObject). To update _some_ attributes of an existing record, use the
+    // [`partial` operation](#tag/Records/operation/partialUpdateObject) instead. To add, update, or replace multiple
+    // records, use the [`batch` operation](#tag/Records/operation/batch).
     // Required API Key ACLs:
     //  - addObject
     //
@@ -161,7 +164,10 @@ open class SearchClient {
             method: "PUT",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -207,13 +213,17 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter xAlgoliaUserID: (header) Unique identifier of the user who makes the search request.
     /// - parameter assignUserIdParams: (body)
     /// - returns: CreatedAtResponse
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func assignUserId(
         xAlgoliaUserID: String,
@@ -233,15 +243,16 @@ open class SearchClient {
         return body
     }
 
-    // Assigns or moves a user ID to a cluster.  The time it takes to move a user is proportional to the amount of data
-    // linked to the user ID.
-    // Required API Key ACLs:
-    //  - admin
-    //
-    // - parameter xAlgoliaUserID: (header) Unique identifier of the user who makes the search request.
-    //
-    // - parameter assignUserIdParams: (body)
-    // - returns: RequestBuilder<CreatedAtResponse>
+    /// Assigns or moves a user ID to a cluster.  The time it takes to move a user is proportional to the amount of data
+    /// linked to the user ID.
+    /// Required API Key ACLs:
+    ///  - admin
+    ///
+    /// - parameter xAlgoliaUserID: (header) Unique identifier of the user who makes the search request.
+    ///
+    /// - parameter assignUserIdParams: (body)
+    /// - returns: RequestBuilder<CreatedAtResponse>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func assignUserIdWithHTTPInfo(
         xAlgoliaUserID: String,
@@ -262,7 +273,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -290,7 +304,7 @@ open class SearchClient {
 
     // Adds, updates, or deletes records in one index with a single API request.  Batching index updates reduces latency
     // and increases data integrity.  - Actions are applied in the order they're specified. - Actions are equivalent to
-    // the individual API requests of the same name.
+    // the individual API requests of the same name.  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     //
     //
     // - parameter indexName: (path) Name of the index on which to perform the operation.
@@ -328,13 +342,17 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter xAlgoliaUserID: (header) Unique identifier of the user who makes the search request.
     /// - parameter batchAssignUserIdsParams: (body)
     /// - returns: CreatedAtResponse
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func batchAssignUserIds(
         xAlgoliaUserID: String,
@@ -354,14 +372,15 @@ open class SearchClient {
         return body
     }
 
-    // Assigns multiple user IDs to a cluster.  **You can't move users with this operation**.
-    // Required API Key ACLs:
-    //  - admin
-    //
-    // - parameter xAlgoliaUserID: (header) Unique identifier of the user who makes the search request.
-    //
-    // - parameter batchAssignUserIdsParams: (body)
-    // - returns: RequestBuilder<CreatedAtResponse>
+    /// Assigns multiple user IDs to a cluster.  **You can't move users with this operation**.
+    /// Required API Key ACLs:
+    ///  - admin
+    ///
+    /// - parameter xAlgoliaUserID: (header) Unique identifier of the user who makes the search request.
+    ///
+    /// - parameter batchAssignUserIdsParams: (body)
+    /// - returns: RequestBuilder<CreatedAtResponse>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func batchAssignUserIdsWithHTTPInfo(
         xAlgoliaUserID: String,
@@ -382,7 +401,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -443,7 +465,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -515,7 +540,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions,
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions,
             useReadTransporter: true
         )
     }
@@ -536,7 +564,8 @@ open class SearchClient {
         return body
     }
 
-    // Deletes only the records from an index while keeping settings, synonyms, and rules.
+    // Deletes only the records from an index while keeping settings, synonyms, and rules. This operation is
+    // resource-intensive and subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     // Required API Key ACLs:
     //  - deleteIndex
     //
@@ -572,7 +601,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -639,7 +671,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -706,11 +741,14 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - returns: AnyCodable
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
@@ -732,10 +770,10 @@ open class SearchClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     // - returns: RequestBuilder<AnyCodable>
@@ -768,11 +806,14 @@ open class SearchClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - returns: AnyCodable
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
@@ -794,10 +835,10 @@ open class SearchClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     // - returns: RequestBuilder<AnyCodable>
@@ -830,11 +871,14 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - parameter body: (body) Parameters to send with the custom request. (optional)
     /// - returns: AnyCodable
@@ -859,10 +903,10 @@ open class SearchClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     //
@@ -898,11 +942,14 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
-    /// - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    /// - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     /// - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     /// - parameter body: (body) Parameters to send with the custom request. (optional)
     /// - returns: AnyCodable
@@ -927,10 +974,10 @@ open class SearchClient {
         return body
     }
 
-    // This method allow you to send requests to the Algolia REST API.
+    // This method lets you send requests to the Algolia REST API.
     //
     //
-    // - parameter path: (path) Path of the endpoint, anything after \"/1\" must be specified.
+    // - parameter path: (path) Path of the endpoint, for example `1/newFeature`.
     //
     // - parameter parameters: (query) Query parameters to apply to the current query. (optional)
     //
@@ -966,7 +1013,10 @@ open class SearchClient {
             method: "PUT",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1021,7 +1071,10 @@ open class SearchClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1047,9 +1100,10 @@ open class SearchClient {
         return body
     }
 
-    // This operation doesn't accept empty queries or filters.  It's more efficient to get a list of object IDs with the
-    // [`browse` operation](#tag/Search/operation/browse), and then delete the records using the [`batch`
-    // operation](#tag/Records/operation/batch).
+    // This operation doesn't accept empty filters.  This operation is resource-intensive. You should only use it if you
+    // can't get the object IDs of the records you want to delete. It's more efficient to get a list of object IDs with
+    // the [`browse` operation](#tag/Search/operation/browse), and then delete the records using the [`batch`
+    // operation](#tag/Records/operation/batch).  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     // Required API Key ACLs:
     //  - deleteIndex
     //
@@ -1088,7 +1142,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1152,7 +1209,10 @@ open class SearchClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1179,7 +1239,7 @@ open class SearchClient {
     }
 
     // Deletes a record by its object ID.  To delete more than one record, use the [`batch`
-    // operation](#tag/Records/operation/batch). To delete records matching a query, use the [`deleteByQuery`
+    // operation](#tag/Records/operation/batch). To delete records matching a query, use the [`deleteBy`
     // operation](#tag/Records/operation/deleteBy).
     // Required API Key ACLs:
     //  - deleteObject
@@ -1232,7 +1292,10 @@ open class SearchClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1319,7 +1382,10 @@ open class SearchClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1356,8 +1422,7 @@ open class SearchClient {
 
         var resourcePath = "/1/security/sources/{source}"
         let sourcePreEscape = "\(APIHelper.mapValueToPathItem(source))"
-        let sourcePostEscape = sourcePreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let sourcePostEscape = sourcePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{source}",
             with: sourcePostEscape,
@@ -1375,7 +1440,10 @@ open class SearchClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1462,7 +1530,10 @@ open class SearchClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1518,7 +1589,10 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1551,8 +1625,7 @@ open class SearchClient {
     ) async throws -> Response<GetTaskResponse> {
         var resourcePath = "/1/task/{taskID}"
         let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{taskID}",
             with: taskIDPostEscape,
@@ -1570,7 +1643,10 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1606,7 +1682,10 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1643,7 +1722,10 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1722,7 +1804,10 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1816,7 +1901,10 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1863,7 +1951,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions,
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions,
             useReadTransporter: true
         )
     }
@@ -1939,7 +2030,10 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -1961,7 +2055,7 @@ open class SearchClient {
 
     // Retrieves an object with non-null index settings.
     // Required API Key ACLs:
-    //  - search
+    //  - settings
     //
     // - parameter indexName: (path) Name of the index on which to perform the operation.
     // - returns: RequestBuilder<SettingsResponse>
@@ -1995,7 +2089,10 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2030,7 +2127,10 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2109,7 +2209,10 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2166,8 +2269,7 @@ open class SearchClient {
             range: nil
         )
         let taskIDPreEscape = "\(APIHelper.mapValueToPathItem(taskID))"
-        let taskIDPostEscape = taskIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let taskIDPostEscape = taskIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{taskID}",
             with: taskIDPostEscape,
@@ -2185,11 +2287,15 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - returns: GetTopUserIdsResponse
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func getTopUserIds(requestOptions: RequestOptions? = nil) async throws -> GetTopUserIdsResponse {
         let response: Response<GetTopUserIdsResponse> =
@@ -2202,11 +2308,12 @@ open class SearchClient {
         return body
     }
 
-    // Get the IDs of the 10 users with the highest number of records per cluster.  Since it can take a few seconds to
-    // get the data from the different clusters, the response isn't real-time.
-    // Required API Key ACLs:
-    //  - admin
-    //     - returns: RequestBuilder<GetTopUserIdsResponse>
+    /// Get the IDs of the 10 users with the highest number of records per cluster.  Since it can take a few seconds to
+    /// get the data from the different clusters, the response isn't real-time.
+    /// Required API Key ACLs:
+    ///  - admin
+    ///     - returns: RequestBuilder<GetTopUserIdsResponse>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func getTopUserIdsWithHTTPInfo(requestOptions userRequestOptions: RequestOptions? = nil) async throws
     -> Response<GetTopUserIdsResponse> {
@@ -2222,12 +2329,16 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter userID: (path) Unique identifier of the user who makes the search request.
     /// - returns: UserId
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func getUserId(userID: String, requestOptions: RequestOptions? = nil) async throws -> UserId {
         let response: Response<UserId> = try await getUserIdWithHTTPInfo(userID: userID, requestOptions: requestOptions)
@@ -2239,13 +2350,14 @@ open class SearchClient {
         return body
     }
 
-    // Returns the user ID data stored in the mapping.  Since it can take a few seconds to get the data from the
-    // different clusters, the response isn't real-time.
-    // Required API Key ACLs:
-    //  - admin
-    //
-    // - parameter userID: (path) Unique identifier of the user who makes the search request.
-    // - returns: RequestBuilder<UserId>
+    /// Returns the user ID data stored in the mapping.  Since it can take a few seconds to get the data from the
+    /// different clusters, the response isn't real-time.
+    /// Required API Key ACLs:
+    ///  - admin
+    ///
+    /// - parameter userID: (path) Unique identifier of the user who makes the search request.
+    /// - returns: RequestBuilder<UserId>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func getUserIdWithHTTPInfo(
         userID: String,
@@ -2257,8 +2369,7 @@ open class SearchClient {
 
         var resourcePath = "/1/clusters/mapping/{userID}"
         let userIDPreEscape = "\(APIHelper.mapValueToPathItem(userID))"
-        let userIDPostEscape = userIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let userIDPostEscape = userIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{userID}",
             with: userIDPostEscape,
@@ -2276,13 +2387,17 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter getClusters: (query) Whether to include the cluster's pending mapping state in the response.
     /// (optional)
     /// - returns: HasPendingMappingsResponse
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func hasPendingMappings(
         getClusters: Bool? = nil,
@@ -2300,14 +2415,15 @@ open class SearchClient {
         return body
     }
 
-    // To determine when the time-consuming process of creating a large batch of users or migrating users from one
-    // cluster to another is complete, this operation retrieves the status of the process.
-    // Required API Key ACLs:
-    //  - admin
-    //
-    // - parameter getClusters: (query) Whether to include the cluster's pending mapping state in the response.
-    // (optional)
-    // - returns: RequestBuilder<HasPendingMappingsResponse>
+    /// To determine when the time-consuming process of creating a large batch of users or migrating users from one
+    /// cluster to another is complete, this operation retrieves the status of the process.
+    /// Required API Key ACLs:
+    ///  - admin
+    ///
+    /// - parameter getClusters: (query) Whether to include the cluster's pending mapping state in the response.
+    /// (optional)
+    /// - returns: RequestBuilder<HasPendingMappingsResponse>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func hasPendingMappingsWithHTTPInfo(
         getClusters: Bool? = nil,
@@ -2327,7 +2443,10 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2362,11 +2481,15 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - returns: ListClustersResponse
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func listClusters(requestOptions: RequestOptions? = nil) async throws -> ListClustersResponse {
         let response: Response<ListClustersResponse> =
@@ -2379,10 +2502,11 @@ open class SearchClient {
         return body
     }
 
-    // Lists the available clusters in a multi-cluster setup.
-    // Required API Key ACLs:
-    //  - admin
-    //     - returns: RequestBuilder<ListClustersResponse>
+    /// Lists the available clusters in a multi-cluster setup.
+    /// Required API Key ACLs:
+    ///  - admin
+    ///     - returns: RequestBuilder<ListClustersResponse>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func listClustersWithHTTPInfo(requestOptions userRequestOptions: RequestOptions? = nil) async throws
     -> Response<ListClustersResponse> {
@@ -2398,7 +2522,10 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2456,7 +2583,10 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2464,6 +2594,7 @@ open class SearchClient {
     /// (optional)
     /// - parameter hitsPerPage: (query) Number of hits per page. (optional, default to 100)
     /// - returns: ListUserIdsResponse
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func listUserIds(
         page: Int? = nil,
@@ -2483,16 +2614,17 @@ open class SearchClient {
         return body
     }
 
-    // Lists the userIDs assigned to a multi-cluster application.  Since it can take a few seconds to get the data from
-    // the different clusters, the response isn't real-time.
-    // Required API Key ACLs:
-    //  - admin
-    //
-    // - parameter page: (query) Requested page of the API response. If `null`, the API response is not paginated. 
-    // (optional)
-    //
-    // - parameter hitsPerPage: (query) Number of hits per page. (optional, default to 100)
-    // - returns: RequestBuilder<ListUserIdsResponse>
+    /// Lists the userIDs assigned to a multi-cluster application.  Since it can take a few seconds to get the data from
+    /// the different clusters, the response isn't real-time.
+    /// Required API Key ACLs:
+    ///  - admin
+    ///
+    /// - parameter page: (query) Requested page of the API response. If `null`, the API response is not paginated. 
+    /// (optional)
+    ///
+    /// - parameter hitsPerPage: (query) Number of hits per page. (optional, default to 100)
+    /// - returns: RequestBuilder<ListUserIdsResponse>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func listUserIdsWithHTTPInfo(
         page: Int? = nil,
@@ -2514,7 +2646,10 @@ open class SearchClient {
             method: "GET",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2538,7 +2673,8 @@ open class SearchClient {
     }
 
     // Adds, updates, or deletes records in multiple indices with a single API request.  - Actions are applied in the
-    // order they are specified. - Actions are equivalent to the individual API requests of the same name.
+    // order they are specified. - Actions are equivalent to the individual API requests of the same name.  This
+    // operation is subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     //
     //
     // - parameter batchParams: (body)
@@ -2560,7 +2696,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2587,11 +2726,11 @@ open class SearchClient {
     }
 
     // Copies or moves (renames) an index within the same Algolia application.  - Existing destination indices are
-    // overwritten, except for their analytics data. - If the destination index doesn't exist yet, it'll be created. 
-    // **Copy**  - Copying a source index that doesn't exist creates a new index with 0 records and default settings. -
-    // The API keys of the source index are merged with the existing keys in the destination index. - You can't copy the
-    // `enableReRanking`, `mode`, and `replicas` settings. - You can't copy to a destination index that already has
-    // replicas. - Be aware of the [size
+    // overwritten, except for their analytics data. - If the destination index doesn't exist yet, it'll be created. -
+    // This operation is resource-intensive.  **Copy**  - Copying a source index that doesn't exist creates a new index
+    // with 0 records and default settings. - The API keys of the source index are merged with the existing keys in the
+    // destination index. - You can't copy the `enableReRanking`, `mode`, and `replicas` settings. - You can't copy to a
+    // destination index that already has replicas. - Be aware of the [size
     // limits](https://www.algolia.com/doc/guides/scaling/algolia-service-limits/#application-record-and-index-limits).
     // -
     // Related guide: [Copy indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/copy-indices/)
@@ -2599,7 +2738,7 @@ open class SearchClient {
     // index, the analytics data keeps its original name, and a new set of analytics data is started for the new name.  
     // To access the original analytics in the dashboard, create an index with the original name. - If the destination
     // index has replicas, moving will overwrite the existing index and copy the data to the replica indices. - Related
-    // guide: [Move indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/move-indices/).
+    // guide: [Move indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/move-indices/).  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     // Required API Key ACLs:
     //  - addObject
     //
@@ -2638,7 +2777,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2674,27 +2816,26 @@ open class SearchClient {
     // Adds new attributes to a record, or updates existing ones.  - If a record with the specified object ID doesn't
     // exist,   a new record is added to the index **if** `createIfNotExists` is true. - If the index doesn't exist yet,
     // this method creates a new index. - You can use any first-level attribute but not nested attributes.   If you
-    // specify a nested attribute, the engine treats it as a replacement for its first-level ancestor.  To update an
-    // attribute without pushing the entire record, you can use these built-in operations. These operations can be
-    // helpful if you don't have access to your initial data.  - Increment: increment a numeric attribute - Decrement:
-    // decrement a numeric attribute - Add: append a number or string element to an array attribute - Remove: remove all
-    // matching number or string elements from an array attribute made of numbers or strings - AddUnique: add a number
-    // or
-    // string element to an array attribute made of numbers or strings only if it's not already present - IncrementFrom:
-    // increment a numeric integer attribute only if the provided value matches the current value, and otherwise ignore
-    // the whole object update. For example, if you pass an IncrementFrom value of 2 for the version attribute, but the
-    // current value of the attribute is 1, the engine ignores the update. If the object doesn't exist, the engine only
-    // creates it if you pass an IncrementFrom value of 0. - IncrementSet: increment a numeric integer attribute only if
-    // the provided value is greater than the current value, and otherwise ignore the whole object update. For example,
-    // if you pass an IncrementSet value of 2 for the version attribute, and the current value of the attribute is 1,
-    // the
+    // specify a nested attribute, this operation replaces its first-level ancestor.  To update an attribute without
+    // pushing the entire record, you can use these built-in operations. These operations can be helpful if you don't
+    // have access to your initial data.  - Increment: increment a numeric attribute - Decrement: decrement a numeric
+    // attribute - Add: append a number or string element to an array attribute - Remove: remove all matching number or
+    // string elements from an array attribute made of numbers or strings - AddUnique: add a number or string element to
+    // an array attribute made of numbers or strings only if it's not already present - IncrementFrom: increment a
+    // numeric integer attribute only if the provided value matches the current value, and otherwise ignore the whole
+    // object update. For example, if you pass an IncrementFrom value of 2 for the version attribute, but the current
+    // value of the attribute is 1, the engine ignores the update. If the object doesn't exist, the engine only creates
+    // it if you pass an IncrementFrom value of 0. - IncrementSet: increment a numeric integer attribute only if the
+    // provided value is greater than the current value, and otherwise ignore the whole object update. For example, if
+    // you pass an IncrementSet value of 2 for the version attribute, and the current value of the attribute is 1, the
     // engine updates the object. If the object doesn't exist yet, the engine only creates it if you pass an
     // IncrementSet
     // value greater than 0.  You can specify an operation by providing an object with the attribute to update as the
     // key
     // and its value being an object with the following properties:  - _operation: the operation to apply on the
     // attribute - value: the right-hand side argument to the operation, for example, increment or decrement step, value
-    // to add or remove.
+    // to add or remove.  When updating multiple attributes or using multiple operations targeting the same record, you
+    // should use a single partial update for faster processing.  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     // Required API Key ACLs:
     //  - addObject
     //
@@ -2755,12 +2896,16 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter userID: (path) Unique identifier of the user who makes the search request.
     /// - returns: RemoveUserIdResponse
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func removeUserId(userID: String, requestOptions: RequestOptions? = nil) async throws -> RemoveUserIdResponse {
         let response: Response<RemoveUserIdResponse> = try await removeUserIdWithHTTPInfo(
@@ -2775,12 +2920,13 @@ open class SearchClient {
         return body
     }
 
-    // Deletes a user ID and its associated data from the clusters.
-    // Required API Key ACLs:
-    //  - admin
-    //
-    // - parameter userID: (path) Unique identifier of the user who makes the search request.
-    // - returns: RequestBuilder<RemoveUserIdResponse>
+    /// Deletes a user ID and its associated data from the clusters.
+    /// Required API Key ACLs:
+    ///  - admin
+    ///
+    /// - parameter userID: (path) Unique identifier of the user who makes the search request.
+    /// - returns: RequestBuilder<RemoveUserIdResponse>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func removeUserIdWithHTTPInfo(
         userID: String,
@@ -2792,8 +2938,7 @@ open class SearchClient {
 
         var resourcePath = "/1/clusters/mapping/{userID}"
         let userIDPreEscape = "\(APIHelper.mapValueToPathItem(userID))"
-        let userIDPostEscape = userIDPreEscape
-            .addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
+        let userIDPostEscape = userIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAlgoliaAllowed) ?? ""
         resourcePath = resourcePath.replacingOccurrences(
             of: "{userID}",
             with: userIDPostEscape,
@@ -2811,7 +2956,10 @@ open class SearchClient {
             method: "DELETE",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2857,7 +3005,10 @@ open class SearchClient {
             method: "PUT",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2913,14 +3064,16 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
     /// - parameter indexName: (path) Name of the index on which to perform the operation.
     /// - parameter body: (body) The record. A schemaless object with attributes that are useful in the context of
-    /// search
-    /// and discovery.
+    /// search and discovery.
     /// - returns: SaveObjectResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func saveObject(
@@ -2941,13 +3094,14 @@ open class SearchClient {
         return body
     }
 
-    // Adds a record to an index or replace it.  - If the record doesn't have an object ID, a new record with an
+    // Adds a record to an index or replaces it.  - If the record doesn't have an object ID, a new record with an
     // auto-generated object ID is added to your index. - If a record with the specified object ID exists, the existing
     // record is replaced. - If a record with the specified object ID doesn't exist, a new record is added to your
     // index.
     // - If you add a record to an index that doesn't exist yet, a new index is created.  To update _some_ attributes of
     // a record, use the [`partial` operation](#tag/Records/operation/partialUpdateObject). To add, update, or replace
-    // multiple records, use the [`batch` operation](#tag/Records/operation/batch).
+    // multiple records, use the [`batch` operation](#tag/Records/operation/batch).  This operation is subject to
+    // [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     // Required API Key ACLs:
     //  - addObject
     //
@@ -2987,7 +3141,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -2995,7 +3152,7 @@ open class SearchClient {
     /// - parameter objectID: (path) Unique identifier of a rule object.
     /// - parameter rule: (body)
     /// - parameter forwardToReplicas: (query) Whether changes are applied to replica indices. (optional)
-    /// - returns: UpdatedRuleResponse
+    /// - returns: UpdatedAtResponse
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func saveRule(
         indexName: String,
@@ -3003,8 +3160,8 @@ open class SearchClient {
         rule: Rule,
         forwardToReplicas: Bool? = nil,
         requestOptions: RequestOptions? = nil
-    ) async throws -> UpdatedRuleResponse {
-        let response: Response<UpdatedRuleResponse> = try await saveRuleWithHTTPInfo(
+    ) async throws -> UpdatedAtResponse {
+        let response: Response<UpdatedAtResponse> = try await saveRuleWithHTTPInfo(
             indexName: indexName,
             objectID: objectID,
             rule: rule,
@@ -3031,7 +3188,7 @@ open class SearchClient {
     // - parameter rule: (body)
     //
     // - parameter forwardToReplicas: (query) Whether changes are applied to replica indices. (optional)
-    // - returns: RequestBuilder<UpdatedRuleResponse>
+    // - returns: RequestBuilder<UpdatedAtResponse>
 
     open func saveRuleWithHTTPInfo(
         indexName: String,
@@ -3039,7 +3196,7 @@ open class SearchClient {
         rule: Rule,
         forwardToReplicas: Bool? = nil,
         requestOptions userRequestOptions: RequestOptions? = nil
-    ) async throws -> Response<UpdatedRuleResponse> {
+    ) async throws -> Response<UpdatedAtResponse> {
         guard !indexName.isEmpty else {
             throw AlgoliaError.invalidArgument("indexName", "saveRule")
         }
@@ -3080,7 +3237,10 @@ open class SearchClient {
             method: "PUT",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -3114,7 +3274,7 @@ open class SearchClient {
     }
 
     // Create or update multiple rules.  If a rule with the specified object ID doesn't exist, Algolia creates a new
-    // one. Otherwise, existing rules are replaced.
+    // one. Otherwise, existing rules are replaced.  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     // Required API Key ACLs:
     //  - editSettings
     //
@@ -3163,7 +3323,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -3257,7 +3420,10 @@ open class SearchClient {
             method: "PUT",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -3291,7 +3457,7 @@ open class SearchClient {
     }
 
     // If a synonym with the `objectID` doesn't exist, Algolia adds a new one. Otherwise, existing synonyms are
-    // replaced.
+    // replaced.  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     // Required API Key ACLs:
     //  - editSettings
     //
@@ -3340,7 +3506,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -3367,7 +3536,8 @@ open class SearchClient {
     // Sends multiple search requests to one or more indices.  This can be useful in these cases:  - Different indices
     // for different purposes, such as, one index for products, another one for marketing content. - Multiple searches
     // to
-    // the same index—for example, with different filters.
+    // the same index—for example, with different filters.  Use the helper `searchForHits` or `searchForFacets` to get
+    // the results in a more convenient format, if you already know the return type you want.
     // Required API Key ACLs:
     //  - search
     //
@@ -3391,7 +3561,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions,
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions,
             useReadTransporter: true
         )
     }
@@ -3453,7 +3626,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions,
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions,
             useReadTransporter: true
         )
     }
@@ -3542,7 +3718,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions,
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions,
             useReadTransporter: true
         )
     }
@@ -3608,7 +3787,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions,
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions,
             useReadTransporter: true
         )
     }
@@ -3676,7 +3858,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions,
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions,
             useReadTransporter: true
         )
     }
@@ -3742,13 +3927,17 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body ?? AnyCodable(),
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions,
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions,
             useReadTransporter: true
         )
     }
 
     /// - parameter searchUserIdsParams: (body)
     /// - returns: SearchUserIdsResponse
+    @available(*, deprecated, message: "This operation is deprecated.")
     @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     open func searchUserIds(
         searchUserIdsParams: SearchUserIdsParams,
@@ -3766,17 +3955,16 @@ open class SearchClient {
         return body
     }
 
-    // Since it can take a few seconds to get the data from the different clusters, the response isn't real-time.  To
-    // ensure rapid updates, the user IDs index isn't built at the same time as the mapping. Instead, it's built every
-    // 12
-    // hours, at the same time as the update of user ID usage. For example, if you add or move a user ID, the search
-    // will
-    // show an old value until the next time the mapping is rebuilt (every 12 hours).
-    // Required API Key ACLs:
-    //  - admin
-    //
-    // - parameter searchUserIdsParams: (body)
-    // - returns: RequestBuilder<SearchUserIdsResponse>
+    /// Since it can take a few seconds to get the data from the different clusters, the response isn't real-time.  To
+    /// ensure rapid updates, the user IDs index isn't built at the same time as the mapping. Instead, it's built every
+    /// 12 hours, at the same time as the update of user ID usage. For example, if you add or move a user ID, the search
+    /// will show an old value until the next time the mapping is rebuilt (every 12 hours).
+    /// Required API Key ACLs:
+    ///  - admin
+    ///
+    /// - parameter searchUserIdsParams: (body)
+    /// - returns: RequestBuilder<SearchUserIdsResponse>
+    @available(*, deprecated, message: "This operation is deprecated.")
 
     open func searchUserIdsWithHTTPInfo(
         searchUserIdsParams: SearchUserIdsParams,
@@ -3794,7 +3982,10 @@ open class SearchClient {
             method: "POST",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions,
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions,
             useReadTransporter: true
         )
     }
@@ -3841,7 +4032,10 @@ open class SearchClient {
             method: "PUT",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -3916,7 +4110,10 @@ open class SearchClient {
             method: "PUT",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 
@@ -3981,7 +4178,10 @@ open class SearchClient {
             method: "PUT",
             path: resourcePath,
             data: body,
-            requestOptions: RequestOptions(headers: headers, queryParameters: queryParameters) + userRequestOptions
+            requestOptions: RequestOptions(
+                headers: headers,
+                queryParameters: queryParameters
+            ) + userRequestOptions
         )
     }
 }
