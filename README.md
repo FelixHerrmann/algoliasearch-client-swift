@@ -29,11 +29,10 @@
 
 
 <p align="center">
-  <a href="https://www.algolia.com/doc/libraries/swift/" target="_blank">Documentation</a>  •
+  <a href="https://www.algolia.com/doc/libraries/sdk/install#swift" target="_blank">Documentation</a>  •
   <a href="https://discourse.algolia.com" target="_blank">Community Forum</a>  •
   <a href="http://stackoverflow.com/questions/tagged/algolia" target="_blank">Stack Overflow</a>  •
   <a href="https://github.com/algolia/algoliasearch-client-swift/issues" target="_blank">Report a bug</a>  •
-  <a href="https://www.algolia.com/doc/api-client/troubleshooting/faq/swift/" target="_blank">FAQ</a>  •
   <a href="https://alg.li/support" target="_blank">Support</a>
 </p>
 
@@ -133,7 +132,7 @@ let response: SearchResponses<Hit> = try await client
     ))]))
 ```
 
-For full documentation, visit the **[Algolia Swift API Client](https://www.algolia.com/doc/libraries/swift/)**.
+For full documentation, visit the **[Algolia Swift API Client](https://www.algolia.com/doc/libraries/sdk/install#swift)**.
 
 ## Notes
 
@@ -157,7 +156,7 @@ You can use the old library with Swift by one of the following ways:
 
 ## ❓ Troubleshooting
 
-Encountering an issue? Before reaching out to support, we recommend heading to our [FAQ](https://www.algolia.com/doc/api-client/troubleshooting/faq/swift/) where you will find answers for the most common issues and gotchas with the client. You can also open [a GitHub issue](https://github.com/algolia/api-clients-automation/issues/new?assignees=&labels=&projects=&template=Bug_report.md)
+Encountering an issue? Before reaching out to support, we recommend heading to our [FAQ](https://support.algolia.com/hc/sections/15061037630609-API-Client-FAQs) where you will find answers for the most common issues and gotchas with the client. You can also open [a GitHub issue](https://github.com/algolia/api-clients-automation/issues/new?assignees=&labels=&projects=&template=Bug_report.md)
 
 ## Contributing
 

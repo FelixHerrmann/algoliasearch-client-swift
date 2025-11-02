@@ -1,3 +1,28 @@
+## [9.33.0](https://github.com/algolia/algoliasearch-client-swift/compare/9.32.0...9.33.0)
+
+- [d9b21b4b1](https://github.com/algolia/api-clients-automation/commit/d9b21b4b1) feat(specs): add `renderingContent` query parameter in Composition API main injection ([#5549](https://github.com/algolia/api-clients-automation/pull/5549)) by [@ClaraMuller](https://github.com/ClaraMuller/)
+- [1eee2a5f7](https://github.com/algolia/api-clients-automation/commit/1eee2a5f7) fix(specs): add ACL to missing endpoints ([#5529](https://github.com/algolia/api-clients-automation/pull/5529)) by [@millotp](https://github.com/millotp/)
+- [38ae444d7](https://github.com/algolia/api-clients-automation/commit/38ae444d7) feat(specs): add specific documentation for `facets` query parameter in Composition API ([#5477](https://github.com/algolia/api-clients-automation/pull/5477)) by [@ClaraMuller](https://github.com/ClaraMuller/)
+
+## [9.32.0](https://github.com/algolia/algoliasearch-client-swift/compare/9.31.1...9.32.0)
+
+- [8ecec05ca](https://github.com/algolia/api-clients-automation/commit/8ecec05ca) chore(scripts): reuse the swift build folder ([#5484](https://github.com/algolia/api-clients-automation/pull/5484)) by [@millotp](https://github.com/millotp/)
+- [7f9de7cd9](https://github.com/algolia/api-clients-automation/commit/7f9de7cd9) fix(specs): ingestion small fix + added source input descriptions ([#5515](https://github.com/algolia/api-clients-automation/pull/5515)) by [@sbellone](https://github.com/sbellone/)
+- [7287faaa7](https://github.com/algolia/api-clients-automation/commit/7287faaa7) feat(specs): add `facets` query parameter available at run time ([#5486](https://github.com/algolia/api-clients-automation/pull/5486)) by [@ClaraMuller](https://github.com/ClaraMuller/)
+
+## [9.31.1](https://github.com/algolia/algoliasearch-client-swift/compare/9.31.0...9.31.1)
+
+- [9a92b3269](https://github.com/algolia/api-clients-automation/commit/9a92b3269) chore(deps): dependencies 2025-10-13 ([#5453](https://github.com/algolia/api-clients-automation/pull/5453)) by [@algolia-bot](https://github.com/algolia-bot/)
+- [02b6a90ae](https://github.com/algolia/api-clients-automation/commit/02b6a90ae) fix(clients): upgrade linter ([#5476](https://github.com/algolia/api-clients-automation/pull/5476)) by [@millotp](https://github.com/millotp/)
+- [3fc252bec](https://github.com/algolia/api-clients-automation/commit/3fc252bec) chore: remove dead links ([#5472](https://github.com/algolia/api-clients-automation/pull/5472)) by [@millotp](https://github.com/millotp/)
+- [9eebe5113](https://github.com/algolia/api-clients-automation/commit/9eebe5113) docs: replace links for the new doc ([#5478](https://github.com/algolia/api-clients-automation/pull/5478)) by [@millotp](https://github.com/millotp/)
+
+## [9.31.0](https://github.com/algolia/algoliasearch-client-swift/compare/9.30.0...9.31.0)
+
+- [7de94353f](https://github.com/algolia/api-clients-automation/commit/7de94353f) feat(specs): add compositions deduplication setting ([#5418](https://github.com/algolia/api-clients-automation/pull/5418)) by [@ben-kalmus](https://github.com/ben-kalmus/)
+- [8bee10f1a](https://github.com/algolia/api-clients-automation/commit/8bee10f1a) fix(clients): add a default idleConnTimeout ([#5442](https://github.com/algolia/api-clients-automation/pull/5442)) by [@millotp](https://github.com/millotp/)
+- [01261eceb](https://github.com/algolia/api-clients-automation/commit/01261eceb) chore(deps): dependencies 2025-09-29 ([#5393](https://github.com/algolia/api-clients-automation/pull/5393)) by [@algolia-bot](https://github.com/algolia-bot/)
+
 ## [9.30.0](https://github.com/algolia/algoliasearch-client-swift/compare/9.29.0...9.30.0)
 
 - [ad51f60561](https://github.com/algolia/api-clients-automation/commit/ad51f60561) feat(specs): add partialNoCreate action to ingestion specs ([#5389](https://github.com/algolia/api-clients-automation/pull/5389)) by [@shortcuts](https://github.com/shortcuts/)

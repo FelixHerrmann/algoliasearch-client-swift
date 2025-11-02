@@ -205,7 +205,10 @@ open class IngestionClient {
     }
 
     // Creates a new task.
-    //
+    // Required API Key ACLs:
+    //  - addObject
+    //  - deleteIndex
+    //  - editSettings
     //
     // - parameter taskCreate: (body) Request body for creating a task.
     // - returns: RequestBuilder<TaskCreateResponse>
@@ -254,7 +257,10 @@ open class IngestionClient {
     }
 
     /// Creates a new task using the v1 endpoint, please use `createTask` instead.
-    ///
+    /// Required API Key ACLs:
+    ///  - addObject
+    ///  - deleteIndex
+    ///  - editSettings
     ///
     /// - parameter taskCreate: (body) Request body for creating a task.
     /// - returns: RequestBuilder<TaskCreateResponse>
@@ -303,7 +309,10 @@ open class IngestionClient {
     }
 
     // Creates a new transformation.
-    //
+    // Required API Key ACLs:
+    //  - addObject
+    //  - deleteIndex
+    //  - editSettings
     //
     // - parameter transformationCreate: (body) Request body for creating a transformation.
     // - returns: RequestBuilder<TransformationCreateResponse>
@@ -810,7 +819,10 @@ open class IngestionClient {
     }
 
     // Deletes a task by its ID.
-    //
+    // Required API Key ACLs:
+    //  - addObject
+    //  - deleteIndex
+    //  - editSettings
     //
     // - parameter taskID: (path) Unique identifier of a task.
     // - returns: RequestBuilder<DeleteResponse>
@@ -868,7 +880,10 @@ open class IngestionClient {
     }
 
     /// Deletes a task by its ID using the v1 endpoint, please use `deleteTask` instead.
-    ///
+    /// Required API Key ACLs:
+    ///  - addObject
+    ///  - deleteIndex
+    ///  - editSettings
     ///
     /// - parameter taskID: (path) Unique identifier of a task.
     /// - returns: RequestBuilder<DeleteResponse>
@@ -929,7 +944,10 @@ open class IngestionClient {
     }
 
     // Deletes a transformation by its ID.
-    //
+    // Required API Key ACLs:
+    //  - addObject
+    //  - deleteIndex
+    //  - editSettings
     //
     // - parameter transformationID: (path) Unique identifier of a transformation.
     // - returns: RequestBuilder<DeleteResponse>
@@ -2583,7 +2601,7 @@ open class IngestionClient {
 
     // Pushes records through the Pipeline, directly to an index. You can make the call synchronous by providing the
     // `watch` parameter, for asynchronous calls, you can use the observability endpoints and/or debugger dashboard to
-    // see the status of your task. If you want to leverage the [pre-indexing data transformation](https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/transform-your-data/),
+    // see the status of your task. If you want to leverage the [pre-indexing data transformation](https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/transform-your-data),
     // this is the recommended way of ingesting your records. This method is similar to `pushTask`, but requires an
     // `indexName` instead of a `taskID`. If zero or many tasks are found, an error will be returned.
     // Required API Key ACLs:
@@ -2755,7 +2773,10 @@ open class IngestionClient {
     }
 
     // Fully updates a task by its ID, use partialUpdateTask if you only want to update a subset of fields.
-    //
+    // Required API Key ACLs:
+    //  - addObject
+    //  - deleteIndex
+    //  - editSettings
     //
     // - parameter taskID: (path) Unique identifier of a task.
     //
@@ -3736,7 +3757,10 @@ open class IngestionClient {
     }
 
     // Partially updates a task by its ID.
-    //
+    // Required API Key ACLs:
+    //  - addObject
+    //  - deleteIndex
+    //  - editSettings
     //
     // - parameter taskID: (path) Unique identifier of a task.
     //
@@ -3803,7 +3827,10 @@ open class IngestionClient {
     }
 
     /// Updates a task by its ID using the v1 endpoint, please use `updateTask` instead.
-    ///
+    /// Required API Key ACLs:
+    ///  - addObject
+    ///  - deleteIndex
+    ///  - editSettings
     ///
     /// - parameter taskID: (path) Unique identifier of a task.
     ///
@@ -3870,7 +3897,10 @@ open class IngestionClient {
     }
 
     // Updates a transformation by its ID.
-    //
+    // Required API Key ACLs:
+    //  - addObject
+    //  - deleteIndex
+    //  - editSettings
     //
     // - parameter transformationID: (path) Unique identifier of a transformation.
     //

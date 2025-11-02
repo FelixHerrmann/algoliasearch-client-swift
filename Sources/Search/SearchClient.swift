@@ -106,9 +106,10 @@ open class SearchClient {
 
     // If a record with the specified object ID exists, the existing record is replaced. Otherwise, a new record is
     // added to the index.  If you want to use auto-generated object IDs, use the [`saveObject`
-    // operation](#tag/Records/operation/saveObject). To update _some_ attributes of an existing record, use the
-    // [`partial` operation](#tag/Records/operation/partialUpdateObject) instead. To add, update, or replace multiple
-    // records, use the [`batch` operation](#tag/Records/operation/batch).
+    // operation](https://www.algolia.com/doc/rest-api/search/save-object). To update _some_ attributes of an existing
+    // record, use the [`partial` operation](https://www.algolia.com/doc/rest-api/search/partial-update-object) instead.
+    // To add, update, or replace multiple records, use the [`batch`
+    // operation](https://www.algolia.com/doc/rest-api/search/batch).
     // Required API Key ACLs:
     //  - addObject
     //
@@ -304,8 +305,10 @@ open class SearchClient {
 
     // Adds, updates, or deletes records in one index with a single API request.  Batching index updates reduces latency
     // and increases data integrity.  - Actions are applied in the order they're specified. - Actions are equivalent to
-    // the individual API requests of the same name.  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
-    //
+    // the individual API requests of the same name.  This operation is subject to [indexing rate
+    // limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
+    // Required API Key ACLs:
+    //  - addObject
     //
     // - parameter indexName: (path) Name of the index on which to perform the operation.
     //
@@ -565,7 +568,8 @@ open class SearchClient {
     }
 
     // Deletes only the records from an index while keeping settings, synonyms, and rules. This operation is
-    // resource-intensive and subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
+    // resource-intensive and subject to [indexing rate
+    // limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     // Required API Key ACLs:
     //  - deleteIndex
     //
@@ -1102,8 +1106,10 @@ open class SearchClient {
 
     // This operation doesn't accept empty filters.  This operation is resource-intensive. You should only use it if you
     // can't get the object IDs of the records you want to delete. It's more efficient to get a list of object IDs with
-    // the [`browse` operation](#tag/Search/operation/browse), and then delete the records using the [`batch`
-    // operation](#tag/Records/operation/batch).  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
+    // the [`browse` operation](https://www.algolia.com/doc/rest-api/search/browse), and then delete the records using
+    // the [`batch` operation](https://www.algolia.com/doc/rest-api/search/batch).  This operation is subject to
+    // [indexing rate
+    // limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     // Required API Key ACLs:
     //  - deleteIndex
     //
@@ -1173,7 +1179,7 @@ open class SearchClient {
     // replica indices, the replicas become independent indices. - If the index you want to delete is a replica index,
     // you must first unlink it from its primary index before you can delete it.   For more information, see [Delete
     // replica
-    // indices](https://www.algolia.com/doc/guides/managing-results/refine-results/sorting/how-to/deleting-replicas/).
+    // indices](https://www.algolia.com/doc/guides/managing-results/refine-results/sorting/how-to/deleting-replicas).
     // Required API Key ACLs:
     //  - deleteIndex
     //
@@ -1239,8 +1245,8 @@ open class SearchClient {
     }
 
     // Deletes a record by its object ID.  To delete more than one record, use the [`batch`
-    // operation](#tag/Records/operation/batch). To delete records matching a query, use the [`deleteBy`
-    // operation](#tag/Records/operation/deleteBy).
+    // operation](https://www.algolia.com/doc/rest-api/search/batch). To delete records matching a query, use the
+    // [`deleteBy` operation](https://www.algolia.com/doc/rest-api/search/delete-by).
     // Required API Key ACLs:
     //  - deleteObject
     //
@@ -1325,7 +1331,7 @@ open class SearchClient {
     }
 
     // Deletes a rule by its ID. To find the object ID for rules, use the [`search`
-    // operation](#tag/Rules/operation/searchRules).
+    // operation](https://www.algolia.com/doc/rest-api/search/search-rules).
     // Required API Key ACLs:
     //  - editSettings
     //
@@ -1473,7 +1479,7 @@ open class SearchClient {
     }
 
     // Deletes a synonym by its ID. To find the object IDs of your synonyms, use the [`search`
-    // operation](#tag/Synonyms/operation/searchSynonyms).
+    // operation](https://www.algolia.com/doc/rest-api/search/search-synonyms).
     // Required API Key ACLs:
     //  - editSettings
     //
@@ -1556,7 +1562,8 @@ open class SearchClient {
     // Gets the permissions and restrictions of an API key.  When authenticating with the admin API key, you can request
     // information for any of your application's keys. When authenticating with other API keys, you can only retrieve
     // information for that key, with the description replaced by `<redacted>`.
-    //
+    // Required API Key ACLs:
+    //  - search
     //
     // - parameter key: (path) API key.
     // - returns: RequestBuilder<GetApiKeyResponse>
@@ -1764,8 +1771,8 @@ open class SearchClient {
     // ACL](https://www.algolia.com/doc/guides/security/api-keys/#access-control-list-acl).  - Logs are held for the
     // last
     // seven days. - Up to 1,000 API requests per server are logged. - This request counts towards your [operations
-    // quota](https://support.algolia.com/hc/en-us/articles/4406981829777-How-does-Algolia-count-records-and-operations-)
-    // but doesn't appear in the logs itself.
+    // quota](https://support.algolia.com/hc/articles/17245378392977-How-does-Algolia-count-records-and-operations) but
+    // doesn't appear in the logs itself.
     // Required API Key ACLs:
     //  - logs
     //
@@ -1840,7 +1847,7 @@ open class SearchClient {
     }
 
     // Retrieves one record by its object ID.  To retrieve more than one record, use the [`objects`
-    // operation](#tag/Records/operation/getObjects).
+    // operation](https://www.algolia.com/doc/rest-api/search/get-objects).
     // Required API Key ACLs:
     //  - search
     //
@@ -1978,7 +1985,7 @@ open class SearchClient {
     }
 
     // Retrieves a rule by its ID. To find the object ID of rules, use the [`search`
-    // operation](#tag/Rules/operation/searchRules).
+    // operation](https://www.algolia.com/doc/rest-api/search/search-rules).
     // Required API Key ACLs:
     //  - settings
     //
@@ -2170,7 +2177,7 @@ open class SearchClient {
     }
 
     // Retrieves a synonym by its ID. To find the object IDs for your synonyms, use the [`search`
-    // operation](#tag/Synonyms/operation/searchSynonyms).
+    // operation](https://www.algolia.com/doc/rest-api/search/search-synonyms).
     // Required API Key ACLs:
     //  - settings
     //
@@ -2687,8 +2694,10 @@ open class SearchClient {
 
     // Adds, updates, or deletes records in multiple indices with a single API request.  - Actions are applied in the
     // order they are specified. - Actions are equivalent to the individual API requests of the same name.  This
-    // operation is subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
-    //
+    // operation is subject to [indexing rate
+    // limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
+    // Required API Key ACLs:
+    //  - addObject
     //
     // - parameter batchParams: (body)
     // - returns: RequestBuilder<MultipleBatchResponse>
@@ -2746,12 +2755,12 @@ open class SearchClient {
     // destination index that already has replicas. - Be aware of the [size
     // limits](https://www.algolia.com/doc/guides/scaling/algolia-service-limits/#application-record-and-index-limits).
     // -
-    // Related guide: [Copy indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/copy-indices/)
+    // Related guide: [Copy indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/copy-indices)
     // **Move**  - Moving a source index that doesn't exist is ignored without returning an error. - When moving an
     // index, the analytics data keeps its original name, and a new set of analytics data is started for the new name.  
     // To access the original analytics in the dashboard, create an index with the original name. - If the destination
     // index has replicas, moving will overwrite the existing index and copy the data to the replica indices. - Related
-    // guide: [Move indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/move-indices/).  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
+    // guide: [Move indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/move-indices).  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     // Required API Key ACLs:
     //  - addObject
     //
@@ -2848,7 +2857,8 @@ open class SearchClient {
     // and its value being an object with the following properties:  - _operation: the operation to apply on the
     // attribute - value: the right-hand side argument to the operation, for example, increment or decrement step, value
     // to add or remove.  When updating multiple attributes or using multiple operations targeting the same record, you
-    // should use a single partial update for faster processing.  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
+    // should use a single partial update for faster processing.  This operation is subject to [indexing rate
+    // limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     // Required API Key ACLs:
     //  - addObject
     //
@@ -3112,9 +3122,10 @@ open class SearchClient {
     // record is replaced. - If a record with the specified object ID doesn't exist, a new record is added to your
     // index.
     // - If you add a record to an index that doesn't exist yet, a new index is created.  To update _some_ attributes of
-    // a record, use the [`partial` operation](#tag/Records/operation/partialUpdateObject). To add, update, or replace
-    // multiple records, use the [`batch` operation](#tag/Records/operation/batch).  This operation is subject to
-    // [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
+    // a record, use the [`partial` operation](https://www.algolia.com/doc/rest-api/search/partial-update-object). To
+    // add, update, or replace multiple records, use the [`batch`
+    // operation](https://www.algolia.com/doc/rest-api/search/batch).  This operation is subject to [indexing rate
+    // limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     // Required API Key ACLs:
     //  - addObject
     //
@@ -3190,7 +3201,8 @@ open class SearchClient {
     }
 
     // If a rule with the specified object ID doesn't exist, it's created. Otherwise, the existing rule is replaced.  To
-    // create or update more than one rule, use the [`batch` operation](#tag/Rules/operation/saveRules).
+    // create or update more than one rule, use the [`batch`
+    // operation](https://www.algolia.com/doc/rest-api/search/save-rules).
     // Required API Key ACLs:
     //  - editSettings
     //
@@ -3287,7 +3299,8 @@ open class SearchClient {
     }
 
     // Create or update multiple rules.  If a rule with the specified object ID doesn't exist, Algolia creates a new
-    // one. Otherwise, existing rules are replaced.  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
+    // one. Otherwise, existing rules are replaced.  This operation is subject to [indexing rate
+    // limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     // Required API Key ACLs:
     //  - editSettings
     //
@@ -3373,7 +3386,7 @@ open class SearchClient {
 
     // If a synonym with the specified object ID doesn't exist, Algolia adds a new one. Otherwise, the existing synonym
     // is replaced. To add multiple synonyms in a single API request, use the [`batch`
-    // operation](#tag/Synonyms/operation/saveSynonyms).
+    // operation](https://www.algolia.com/doc/rest-api/search/save-synonyms).
     // Required API Key ACLs:
     //  - editSettings
     //
@@ -3470,7 +3483,8 @@ open class SearchClient {
     }
 
     // If a synonym with the `objectID` doesn't exist, Algolia adds a new one. Otherwise, existing synonyms are
-    // replaced.  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/en-us/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
+    // replaced.  This operation is subject to [indexing rate
+    // limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
     // Required API Key ACLs:
     //  - editSettings
     //
@@ -3830,9 +3844,9 @@ open class SearchClient {
         return body
     }
 
-    // Searches a single index and returns matching search results (_hits_).  This method lets you retrieve up to 1,000
-    // hits. If you need more, use the [`browse` operation](#tag/Search/operation/browse) or increase the
-    // `paginatedLimitedTo` index setting.
+    // Searches a single index and returns matching search results as hits.  This method lets you retrieve up to 1,000
+    // hits. If you need more, use the [`browse` operation](https://www.algolia.com/doc/rest-api/search/browse) or
+    // increase the `paginatedLimitedTo` index setting.
     // Required API Key ACLs:
     //  - search
     //
