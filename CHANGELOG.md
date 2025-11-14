@@ -1,3 +1,15 @@
+## [9.35.0](https://github.com/algolia/algoliasearch-client-swift/compare/9.34.0...9.35.0)
+
+- [7d189e024](https://github.com/algolia/api-clients-automation/commit/7d189e024) feat(specs): add useImagesObjects property in commercetools source input ([#5586](https://github.com/algolia/api-clients-automation/pull/5586)) by [@sbellone](https://github.com/sbellone/)
+- [ee5542a32](https://github.com/algolia/api-clients-automation/commit/ee5542a32) fix(specs): Add title values to key oneOfs ([#5581](https://github.com/algolia/api-clients-automation/pull/5581)) by [@gazconroy](https://github.com/gazconroy/)
+- [354d28b7c](https://github.com/algolia/api-clients-automation/commit/354d28b7c) fix(specs): update run reason in observability ([#5623](https://github.com/algolia/api-clients-automation/pull/5623)) by [@millotp](https://github.com/millotp/)
+- [ae9ac597f](https://github.com/algolia/api-clients-automation/commit/ae9ac597f) fix(specs): add tags and scope to rules ([#5625](https://github.com/algolia/api-clients-automation/pull/5625)) by [@millotp](https://github.com/millotp/)
+
+## [9.34.0](https://github.com/algolia/algoliasearch-client-swift/compare/9.33.0...9.34.0)
+
+- [ecfea56dc](https://github.com/algolia/api-clients-automation/commit/ecfea56dc) feat(clients): remove schedule capabilities ([#5552](https://github.com/algolia/api-clients-automation/pull/5552)) by [@cdhawke](https://github.com/cdhawke/)
+- [ff4b8f02c](https://github.com/algolia/api-clients-automation/commit/ff4b8f02c) feat(specs): add fallbackParameters to Frequently bought together [RECO-2443] ([#5579](https://github.com/algolia/api-clients-automation/pull/5579)) by [@raed667](https://github.com/raed667/)
+
 ## [9.33.0](https://github.com/algolia/algoliasearch-client-swift/compare/9.32.0...9.33.0)
 
 - [d9b21b4b1](https://github.com/algolia/api-clients-automation/commit/d9b21b4b1) feat(specs): add `renderingContent` query parameter in Composition API main injection ([#5549](https://github.com/algolia/api-clients-automation/pull/5549)) by [@ClaraMuller](https://github.com/ClaraMuller/)
