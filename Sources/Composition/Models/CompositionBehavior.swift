@@ -6,33 +6,47 @@ import Foundation
     import Core
 #endif
 
-public struct CompositionBehavior: Codable, JSONEncodable {
-    public var injection: Injection
-
-    public init(injection: Injection) {
-        self.injection = injection
-    }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable {
-        case injection
-    }
-
-    // Encodable protocol methods
+/// An object containing either an `injection` or `multifeed` behavior schema, but not both.
+public enum CompositionBehavior: Codable, JSONEncodable, AbstractEncodable {
+    case compositionInjectionBehavior(CompositionInjectionBehavior)
+    case compositionMultifeedBehavior(CompositionMultifeedBehavior)
 
     public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.injection, forKey: .injection)
+        var container = encoder.singleValueContainer()
+        switch self {
+        case let .compositionInjectionBehavior(value):
+            try container.encode(value)
+        case let .compositionMultifeedBehavior(value):
+            try container.encode(value)
+        }
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let value = try? container.decode(CompositionInjectionBehavior.self) {
+            self = .compositionInjectionBehavior(value)
+        } else if let value = try? container.decode(CompositionMultifeedBehavior.self) {
+            self = .compositionMultifeedBehavior(value)
+        } else {
+            throw DecodingError.typeMismatch(
+                Self.Type.self,
+                .init(
+                    codingPath: decoder.codingPath,
+                    debugDescription: "Unable to decode instance of CompositionBehavior"
+                )
+            )
+        }
+    }
+
+    public func GetActualInstance() -> Encodable {
+        switch self {
+        case let .compositionInjectionBehavior(value):
+            value as CompositionInjectionBehavior
+        case let .compositionMultifeedBehavior(value):
+            value as CompositionMultifeedBehavior
+        }
     }
 }
 
-extension CompositionBehavior: Equatable {
-    public static func ==(lhs: CompositionBehavior, rhs: CompositionBehavior) -> Bool {
-        lhs.injection == rhs.injection
-    }
-}
-
-extension CompositionBehavior: Hashable {
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(self.injection.hashValue)
-    }
-}
+extension CompositionBehavior: Equatable {}
+extension CompositionBehavior: Hashable {}

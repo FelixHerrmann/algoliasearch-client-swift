@@ -1,3 +1,56 @@
+## [9.38.1](https://github.com/algolia/algoliasearch-client-swift/compare/9.38.0...9.38.1)
+
+- [46be49a3f](https://github.com/algolia/api-clients-automation/commit/46be49a3f) docs(specs): align with style guides ([#5930](https://github.com/algolia/api-clients-automation/pull/5930)) by [@kai687](https://github.com/kai687/)
+- [799a10c44](https://github.com/algolia/api-clients-automation/commit/799a10c44) fix(specs): insights-api timestamp documentation ([#5925](https://github.com/algolia/api-clients-automation/pull/5925)) by [@sirockin](https://github.com/sirockin/)
+- [4b3dc5c26](https://github.com/algolia/api-clients-automation/commit/4b3dc5c26) fix(specs): BREAKING CHANGE – remove unnecessary required fields ([#5959](https://github.com/algolia/api-clients-automation/pull/5959)) by [@MarioAlexandruDan](https://github.com/MarioAlexandruDan/)
+  - The `SearchResponse` model now accepts `query` and `params` as optional parameters, as they are not always returned by the API.
+- [dfd992583](https://github.com/algolia/api-clients-automation/commit/dfd992583) fix(specs): add missing `redirect` property to rule consequence schema ([#5934](https://github.com/algolia/api-clients-automation/pull/5934)) by [@Fluf22](https://github.com/Fluf22/)
+
+## [9.38.0](https://github.com/algolia/algoliasearch-client-swift/compare/9.37.4...9.38.0)
+
+BREAKING CHANGES: this minor version includes multiple breaking changes related to fixes on different APIs. See below for more details.
+
+- [b39e3e013](https://github.com/algolia/api-clients-automation/commit/b39e3e013) feat(specs): `conditions` is not required anymore in composition rules ([#5853](https://github.com/algolia/api-clients-automation/pull/5853)) by [@ClaraMuller](https://github.com/ClaraMuller/)
+- [9ef126ccd](https://github.com/algolia/api-clients-automation/commit/9ef126ccd) docs(SearchParams): Document that filter scores are supported in virtual replicas ([#5716](https://github.com/algolia/api-clients-automation/pull/5716)) by [@NixFrog](https://github.com/NixFrog/)
+- [6a3e60802](https://github.com/algolia/api-clients-automation/commit/6a3e60802) fix(specs): BREAKING CHANGE – remove baseRecommendRequest from trendingFacets [CR-10264] ([#5858](https://github.com/algolia/api-clients-automation/pull/5858)) by [@raed667](https://github.com/raed667/)
+  - The `TrendingFacets` model has been updated to reflect the API response.
+- [f9453e693](https://github.com/algolia/api-clients-automation/commit/f9453e693) docs: BREAKING CHANGE – authentication type can't be updated ([#5824](https://github.com/algolia/api-clients-automation/pull/5824)) by [@sbellone](https://github.com/sbellone/)
+  - The `AuthenticationUpdate` model has been updated to reflect that the `type` field can't be updated.
+- [52aed5b35](https://github.com/algolia/api-clients-automation/commit/52aed5b35) fix(specs): allow additionalProperties on insights-api events ([#5885](https://github.com/algolia/api-clients-automation/pull/5885)) by [@sirockin](https://github.com/sirockin/)
+- [2925f56d1](https://github.com/algolia/api-clients-automation/commit/2925f56d1) fix(specs): BREAKING CHANGE – more accurate composition behavior typing ([#5892](https://github.com/algolia/api-clients-automation/pull/5892)) by [@gavinwade12](https://github.com/gavinwade12/)
+  - The `CompositionBehavior` model is now a union type for better accuracy.
+- [63b0c5464](https://github.com/algolia/api-clients-automation/commit/63b0c5464) feat(specs): BREAKING CHANGE – Ingestion API: new `code` property in oauth authentication ([#5897](https://github.com/algolia/api-clients-automation/pull/5897)) by [@sbellone](https://github.com/sbellone/)
+  - The `AuthOAuth` and `AuthOAuthPartial` models have been updated to reflect that the `clientId` field is now optional, and the `code` field can be set.
+
+## [9.37.4](https://github.com/algolia/algoliasearch-client-swift/compare/9.37.3...9.37.4)
+
+- [f02ab6fa0](https://github.com/algolia/api-clients-automation/commit/f02ab6fa0) chore: agentic config prep ([#5825](https://github.com/algolia/api-clients-automation/pull/5825)) by [@Fluf22](https://github.com/Fluf22/)
+
+## [9.37.3](https://github.com/algolia/algoliasearch-client-swift/compare/9.37.2...9.37.3)
+
+- [cd7a174b4](https://github.com/algolia/api-clients-automation/commit/cd7a174b4) fix(specs): BREAKING CHANGE — remove fields requirement from run response in CompAPI client ([#5809](https://github.com/algolia/api-clients-automation/pull/5809)) by [@ClaraMuller](https://github.com/ClaraMuller/)\
+Some fields from the Composition Run search response were marked as required while they were optional on the API side. This has been fixed, but might impact the client types.
+- [b08917039](https://github.com/algolia/api-clients-automation/commit/b08917039) chore(deps): dependencies 2025-12-29 ([#5792](https://github.com/algolia/api-clients-automation/pull/5792)) by [@algolia-bot](https://github.com/algolia-bot/)
+
+## [9.37.2](https://github.com/algolia/algoliasearch-client-swift/compare/9.37.1...9.37.2)
+
+- [005aa6524](https://github.com/algolia/api-clients-automation/commit/005aa6524) chore(deps): dependencies 2025-12-22 ([#5775](https://github.com/algolia/api-clients-automation/pull/5775)) by [@algolia-bot](https://github.com/algolia-bot/)
+
+## [9.37.1](https://github.com/algolia/algoliasearch-client-swift/compare/9.37.0...9.37.1)
+
+- [54606b3b2](https://github.com/algolia/api-clients-automation/commit/54606b3b2) refactor(specs): extract `results` field in a dedicated directory ([#5739](https://github.com/algolia/api-clients-automation/pull/5739)) by [@ClaraMuller](https://github.com/ClaraMuller/)
+- [3296a5033](https://github.com/algolia/api-clients-automation/commit/3296a5033) chore(deps): dependencies 2025-11-24 ([#5653](https://github.com/algolia/api-clients-automation/pull/5653)) by [@algolia-bot](https://github.com/algolia-bot/)
+- [5dabdc540](https://github.com/algolia/api-clients-automation/commit/5dabdc540) refactor(specs): re-organise response for Composition API ([#5744](https://github.com/algolia/api-clients-automation/pull/5744)) by [@ClaraMuller](https://github.com/ClaraMuller/)
+- [3d86676b0](https://github.com/algolia/api-clients-automation/commit/3d86676b0) fix(specs): update list with NLU permissions ([#5769](https://github.com/algolia/api-clients-automation/pull/5769)) by [@MarioAlexandruDan](https://github.com/MarioAlexandruDan/)
+
+## [9.37.0](https://github.com/algolia/algoliasearch-client-swift/compare/9.36.0...9.37.0)
+
+- [5335918a5](https://github.com/algolia/api-clients-automation/commit/5335918a5) chore(scripts): update the jira action ([#5678](https://github.com/algolia/api-clients-automation/pull/5678)) by [@millotp](https://github.com/millotp/)
+- [d6bde0f0c](https://github.com/algolia/api-clients-automation/commit/d6bde0f0c) chore(scripts): remove component from jira ticket ([#5680](https://github.com/algolia/api-clients-automation/pull/5680)) by [@millotp](https://github.com/millotp/)
+- [fe6e82c11](https://github.com/algolia/api-clients-automation/commit/fe6e82c11) feat(specs): add sortBy query param and sortingStrategy ([#5686](https://github.com/algolia/api-clients-automation/pull/5686)) by [@ben-kalmus](https://github.com/ben-kalmus/)
+- [cccfa9c86](https://github.com/algolia/api-clients-automation/commit/cccfa9c86) feat(specs): add `sortBy` trigger on Composition Rules ([#5707](https://github.com/algolia/api-clients-automation/pull/5707)) by [@ClaraMuller](https://github.com/ClaraMuller/)
+- [260d8102c](https://github.com/algolia/api-clients-automation/commit/260d8102c) docs(abtests): Added documentation for featureFilters configuration i… ([#5688](https://github.com/algolia/api-clients-automation/pull/5688)) by [@samykettani](https://github.com/samykettani/)
+
 ## [9.36.0](https://github.com/algolia/algoliasearch-client-swift/compare/9.35.0...9.36.0)
 
 - [4b2cd6b577](https://github.com/algolia/api-clients-automation/commit/4b2cd6b577) fix(swift): make response and disjunctiveFacets public in SearchDisjunctiveFacetingResponse ([#5647](https://github.com/algolia/api-clients-automation/pull/5647)) by [@Fluf22](https://github.com/Fluf22/)
