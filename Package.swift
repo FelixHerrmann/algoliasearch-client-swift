@@ -11,74 +11,88 @@ let package = Package(
         .watchOS(.v7),
     ],
     products: [
-        .library(name: "Core", targets: ["Core"]),
-        .library(name: "Abtesting", targets: ["Abtesting"]),
-        .library(name: "AbtestingV3", targets: ["AbtestingV3"]),
-        .library(name: "Analytics", targets: ["Analytics"]),
-        .library(name: "Composition", targets: ["Composition"]),
-        .library(name: "Ingestion", targets: ["Ingestion"]),
-        .library(name: "Insights", targets: ["Insights"]),
-        .library(name: "Monitoring", targets: ["Monitoring"]),
-        .library(name: "Personalization", targets: ["Personalization"]),
-        .library(name: "QuerySuggestions", targets: ["QuerySuggestions"]),
-        .library(name: "Recommend", targets: ["Recommend"]),
-        .library(name: "Search", targets: ["Search"]),
+        .library(name: "AlgoliaCore", targets: ["AlgoliaCore"]),
+        .library(name: "AlgoliaAbtesting", targets: ["AlgoliaAbtesting"]),
+        .library(name: "AlgoliaAbtestingV3", targets: ["AlgoliaAbtestingV3"]),
+        .library(name: "AlgoliaAnalytics", targets: ["AlgoliaAnalytics"]),
+        .library(name: "AlgoliaComposition", targets: ["AlgoliaComposition"]),
+        .library(name: "AlgoliaIngestion", targets: ["AlgoliaIngestion"]),
+        .library(name: "AlgoliaInsights", targets: ["AlgoliaInsights"]),
+        .library(name: "AlgoliaMonitoring", targets: ["AlgoliaMonitoring"]),
+        .library(name: "AlgoliaPersonalization", targets: ["AlgoliaPersonalization"]),
+        .library(name: "AlgoliaQuerySuggestions", targets: ["AlgoliaQuerySuggestions"]),
+        .library(name: "AlgoliaRecommend", targets: ["AlgoliaRecommend"]),
+        .library(name: "AlgoliaSearch", targets: ["AlgoliaSearch"]),
     ],
     targets: [
-        .target(name: "Core"),
         .target(
-            name: "Abtesting",
-            dependencies: [.target(name: "Core")],
+            name: "AlgoliaCore",
+            path: "Sources/Core",
+        ),
+        .target(
+            name: "AlgoliaAbtesting",
+            dependencies: [.target(name: "AlgoliaCore")],
+            path: "Sources/Abtesting",
             resources: [.copy("../../PrivacyInfo.xcprivacy")]
         ),
         .target(
-            name: "AbtestingV3",
-            dependencies: [.target(name: "Core")],
+            name: "AlgoliaAbtestingV3",
+            dependencies: [.target(name: "AlgoliaCore")],
+            path: "Sources/AbtestingV3",
             resources: [.copy("../../PrivacyInfo.xcprivacy")]
         ),
         .target(
-            name: "Analytics",
-            dependencies: [.target(name: "Core")],
+            name: "AlgoliaAnalytics",
+            dependencies: [.target(name: "AlgoliaCore")],
+            path: "Sources/Analytics",
             resources: [.copy("../../PrivacyInfo.xcprivacy")]
         ),
         .target(
-            name: "Composition",
-            dependencies: [.target(name: "Core")],
+            name: "AlgoliaComposition",
+            dependencies: [.target(name: "AlgoliaCore")],
+            path: "Sources/Composition",
             resources: [.copy("../../PrivacyInfo.xcprivacy")]
         ),
         .target(
-            name: "Ingestion",
-            dependencies: [.target(name: "Core")],
+            name: "AlgoliaIngestion",
+            dependencies: [.target(name: "AlgoliaCore")],
+            path: "Sources/Ingestion",
             resources: [.copy("../../PrivacyInfo.xcprivacy")]
         ),
         .target(
-            name: "Insights",
-            dependencies: [.target(name: "Core")],
+            name: "AlgoliaInsights",
+            dependencies: [.target(name: "AlgoliaCore")],
+            path: "Sources/Insights",
             resources: [.copy("../../PrivacyInfo.xcprivacy")]
         ),
         .target(
-            name: "Monitoring",
-            dependencies: [.target(name: "Core")],
+            name: "AlgoliaMonitoring",
+            dependencies: [.target(name: "AlgoliaCore")],
+            path: "Sources/Monitoring",
             resources: [.copy("../../PrivacyInfo.xcprivacy")]
         ),
         .target(
-            name: "Personalization",
-            dependencies: [.target(name: "Core")],
+            name: "AlgoliaPersonalization",
+            dependencies: [.target(name: "AlgoliaCore")],
+            path: "Sources/Personalization",
             resources: [.copy("../../PrivacyInfo.xcprivacy")]
         ),
         .target(
-            name: "QuerySuggestions",
-            dependencies: [.target(name: "Core")],
+            name: "AlgoliaQuerySuggestions",
+            dependencies: [.target(name: "AlgoliaCore")],
+            path: "Sources/QuerySuggestions",
             resources: [.copy("../../PrivacyInfo.xcprivacy")]
         ),
         .target(
-            name: "Recommend",
-            dependencies: [.target(name: "Core")],
+            name: "AlgoliaRecommend",
+            dependencies: [.target(name: "AlgoliaCore")],
+            path: "Sources/Recommend",
             resources: [.copy("../../PrivacyInfo.xcprivacy")]
         ),
         .target(
-            name: "Search",
-            dependencies: [.target(name: "Core")],
+            name: "AlgoliaSearch",
+            dependencies: [.target(name: "AlgoliaCore")],
+            path: "Sources/Search",
             resources: [.copy("../../PrivacyInfo.xcprivacy")]
         ),
     ]

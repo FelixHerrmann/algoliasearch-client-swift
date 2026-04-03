@@ -6,33 +6,34 @@ import Foundation
     import AlgoliaCore
 #endif
 
-public struct IndexingTimeResponse: Codable, JSONEncodable {
-    public var metrics: IndexingMetric?
+/// Feed formatted as an injection.
+public struct FeedInjection: Codable, JSONEncodable {
+    public var injection: Injection
 
-    public init(metrics: IndexingMetric? = nil) {
-        self.metrics = metrics
+    public init(injection: Injection) {
+        self.injection = injection
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case metrics
+        case injection
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(self.metrics, forKey: .metrics)
+        try container.encode(self.injection, forKey: .injection)
     }
 }
 
-extension IndexingTimeResponse: Equatable {
-    public static func ==(lhs: IndexingTimeResponse, rhs: IndexingTimeResponse) -> Bool {
-        lhs.metrics == rhs.metrics
+extension FeedInjection: Equatable {
+    public static func ==(lhs: FeedInjection, rhs: FeedInjection) -> Bool {
+        lhs.injection == rhs.injection
     }
 }
 
-extension IndexingTimeResponse: Hashable {
+extension FeedInjection: Hashable {
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(self.metrics?.hashValue)
+        hasher.combine(self.injection.hashValue)
     }
 }

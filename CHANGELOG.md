@@ -1,3 +1,23 @@
+## [9.41.1](https://github.com/algolia/algoliasearch-client-swift/compare/9.41.0...9.41.1)
+
+- [600f157a13](https://github.com/algolia/api-clients-automation/commit/600f157a13) fix(specs): remove query parameter that are not accepted by the Composition API ([#6128](https://github.com/algolia/api-clients-automation/pull/6128)) by [@ClaraMuller](https://github.com/ClaraMuller/)
+- [90d96d575a](https://github.com/algolia/api-clients-automation/commit/90d96d575a) chore(deps): dependencies 2026-03-16 ([#6102](https://github.com/algolia/api-clients-automation/pull/6102)) by [@algolia-bot](https://github.com/algolia-bot/)
+
+## [9.41.0](https://github.com/algolia/algoliasearch-client-swift/compare/9.40.0...9.41.0)
+
+- [505136c9d](https://github.com/algolia/api-clients-automation/commit/505136c9d) fix(specs): add deprecated field `condition` in rule schemas ([#5983](https://github.com/algolia/api-clients-automation/pull/5983)) by [@MarioAlexandruDan](https://github.com/MarioAlexandruDan/)
+- [a75523d63](https://github.com/algolia/api-clients-automation/commit/a75523d63) feat(swift): expose configuration ([#6080](https://github.com/algolia/api-clients-automation/pull/6080)) by [@afrencalg](https://github.com/afrencalg/)
+
+## [9.40.0](https://github.com/algolia/algoliasearch-client-swift/compare/9.39.0...9.40.0)
+
+- [695e59bb9](https://github.com/algolia/api-clients-automation/commit/695e59bb9) fix(clients): BREAKING CHANGE – update Swift import statements to use Algolia-prefixed subpackages ([#6016](https://github.com/algolia/api-clients-automation/pull/6016)) by [@Fluf22](https://github.com/Fluf22/)
+  - We prefixed all subpackages with `Algolia` to avoid conflicts with other dependencies. This means that all import statements in Swift clients have been updated to reflect this change. For example, `import Search` is now `import AlgoliaSearch`. Please update your import statements accordingly when upgrading to this version.
+
+## [9.39.0](https://github.com/algolia/algoliasearch-client-swift/compare/9.38.1...9.39.0)
+
+- [93c834fee](https://github.com/algolia/api-clients-automation/commit/93c834fee) feat(specs): add optional feedID to composition result set ([#5991](https://github.com/algolia/api-clients-automation/pull/5991)) by [@gavinwade12](https://github.com/gavinwade12/)
+- [9aafd690b](https://github.com/algolia/api-clients-automation/commit/9aafd690b) fix(specs): invalid API format for multi feed in Comp API ([#5993](https://github.com/algolia/api-clients-automation/pull/5993)) by [@ClaraMuller](https://github.com/ClaraMuller/)
+
 ## [9.38.1](https://github.com/algolia/algoliasearch-client-swift/compare/9.38.0...9.38.1)
 
 - [46be49a3f](https://github.com/algolia/api-clients-automation/commit/46be49a3f) docs(specs): align with style guides ([#5930](https://github.com/algolia/api-clients-automation/pull/5930)) by [@kai687](https://github.com/kai687/)
